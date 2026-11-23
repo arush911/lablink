@@ -1,0 +1,11 @@
+node_modules
+.next
+.git
+.gitignore
+*.log
+design/stitch/screens/*.png
+design/stitch/assets/*.png
+design/stitch/design_system_preview.png
+.env*
+.DS_Store
+Thumbs.db

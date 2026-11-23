@@ -15,6 +15,8 @@ import {
   X,
   ArrowRight,
   RotateCcw,
+  Sparkles,
+  Loader2,
 } from "lucide-react";
 
 interface Equipment {
@@ -67,6 +69,10 @@ export default function EquipmentDiscoveryPage() {
   const [selectedDept, setSelectedDept] = useState("all");
   const [selectedStatus, setSelectedStatus] = useState("all");
 
+  // AI NLP Query Assistant
+  const [aiParsing, setAiParsing] = useState(false);
+  const [aiBanner, setAiBanner] = useState<any | null>(null);
+
   // Inspection Drawer
   const [selectedEquipment, setSelectedEquipment] = useState<Equipment | null>(null);
 
@@ -113,6 +119,34 @@ export default function EquipmentDiscoveryPage() {
     fetchEquipment();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleAiQueryParse = async () => {
+    if (!searchTerm.trim()) return;
+    setAiParsing(true);
+    try {
+      const res = await fetch("/api/v1/ai/parse-query", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: searchTerm }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setAiBanner({
+          source: data.source,
+          ...data.parsed,
+        });
+        // Pre-fill search with matched equipment or keywords if available
+        if (data.parsed.technicalKeywords && data.parsed.technicalKeywords.length > 0) {
+          setSearchTerm(data.parsed.technicalKeywords[0]);
+        }
+        fetchEquipment();
+      }
+    } catch (err) {
+      console.warn("AI parse error:", err);
+    } finally {
+      setAiParsing(false);
+    }
+  };
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -240,10 +274,20 @@ export default function EquipmentDiscoveryPage() {
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search instruments by name, model, manufacturer, asset tag, or specs..."
-              className="w-full pl-10 pr-24 py-2 bg-[#f8fafc] text-sm text-[#0f172a] placeholder-[#94a3b8] rounded border border-[#cbd5e1] focus:bg-white focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600 font-sans"
+              placeholder="Search or describe needed equipment in natural language (e.g. '3 hours on RF oscilloscope')..."
+              className="w-full pl-10 pr-36 py-2 bg-[#f8fafc] text-sm text-[#0f172a] placeholder-[#94a3b8] rounded border border-[#cbd5e1] focus:bg-white focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600 font-sans"
             />
             <div className="absolute inset-y-0 right-0 pr-2 flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={handleAiQueryParse}
+                disabled={aiParsing || !searchTerm.trim()}
+                className="px-2 py-1 text-xs bg-indigo-50 text-indigo-700 border border-indigo-200 font-medium rounded hover:bg-indigo-100 disabled:opacity-50 flex items-center gap-1 transition-colors"
+                title="Parse with AI Arbiter"
+              >
+                {aiParsing ? <Loader2 className="w-3 h-3 animate-spin" /> : <Sparkles className="w-3 h-3 text-indigo-600" />}
+                <span>AI Parse</span>
+              </button>
               <button
                 type="submit"
                 className="px-2.5 py-1 text-xs bg-blue-700 text-white font-medium rounded hover:bg-blue-800 transition-colors"
@@ -252,6 +296,45 @@ export default function EquipmentDiscoveryPage() {
               </button>
             </div>
           </form>
+
+          {/* AI Arbiter Interpretation Banner */}
+          {aiBanner && (
+            <div className="p-3 bg-indigo-50 border border-indigo-200 rounded text-xs text-indigo-950 flex items-start justify-between gap-3">
+              <div className="flex items-start gap-2.5">
+                <Sparkles className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-xs text-indigo-900">
+                      AI Arbiter Query Analysis
+                    </span>
+                    <span className="font-mono text-[9px] bg-indigo-200/70 text-indigo-800 px-1.5 py-0.2 rounded uppercase">
+                      {aiBanner.source}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-indigo-900 leading-relaxed">{aiBanner.explanation}</p>
+                  <div className="flex flex-wrap items-center gap-2 mt-2">
+                    <span className="font-mono text-[10px] bg-white border border-indigo-200 text-indigo-800 px-2 py-0.5 rounded">
+                      Duration: {aiBanner.suggestedDurationHours}h
+                    </span>
+                    <span className="font-mono text-[10px] bg-white border border-indigo-200 text-indigo-800 px-2 py-0.5 rounded">
+                      Window: {aiBanner.timeWindowDescription}
+                    </span>
+                    {aiBanner.targetEquipment?.map((eq: string) => (
+                      <span key={eq} className="font-mono text-[10px] bg-blue-100 text-blue-900 px-2 py-0.5 rounded">
+                        Target: {eq}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <button
+                onClick={() => setAiBanner(null)}
+                className="text-indigo-400 hover:text-indigo-800 p-0.5"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          )}
 
           {/* Filter Pills */}
           <div className="flex flex-wrap items-center justify-between gap-3 pt-1 border-t border-[#f1f5f9]">
