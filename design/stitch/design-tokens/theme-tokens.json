@@ -1,0 +1,162 @@
+{
+  "colorMode": "LIGHT",
+  "font": "INTER",
+  "roundness": "ROUND_FOUR",
+  "customColor": "#1d4ed8",
+  "headlineFont": "INTER",
+  "bodyFont": "INTER",
+  "labelFont": "JETBRAINS_MONO",
+  "namedColors": {
+    "surface_tint": "#2151da",
+    "error_container": "#ffdad6",
+    "inverse_surface": "#283044",
+    "on_surface": "#131b2e",
+    "tertiary_fixed": "#e2dfff",
+    "surface": "#faf8ff",
+    "surface_container_highest": "#dae2fd",
+    "primary_fixed_dim": "#b7c4ff",
+    "outline": "#747686",
+    "on_secondary_container": "#006f66",
+    "outline_variant": "#c4c5d7",
+    "primary": "#0037b0",
+    "secondary_fixed": "#89f5e7",
+    "inverse_on_surface": "#eef0ff",
+    "on_tertiary_fixed_variant": "#3323cc",
+    "on_secondary": "#ffffff",
+    "secondary_container": "#86f2e4",
+    "error": "#ba1a1a",
+    "tertiary": "#311fca",
+    "on_background": "#131b2e",
+    "surface_container_low": "#f2f3ff",
+    "on_secondary_fixed_variant": "#005049",
+    "background": "#faf8ff",
+    "on_secondary_fixed": "#00201d",
+    "secondary_fixed_dim": "#6bd8cb",
+    "surface_container_high": "#e2e7ff",
+    "tertiary_fixed_dim": "#c3c0ff",
+    "on_tertiary_container": "#d3d1ff",
+    "surface_dim": "#d2d9f4",
+    "on_error_container": "#93000a",
+    "inverse_primary": "#b7c4ff",
+    "surface_container": "#eaedff",
+    "on_primary_fixed_variant": "#0039b5",
+    "secondary": "#006a61",
+    "on_error": "#ffffff",
+    "on_tertiary_fixed": "#0f0069",
+    "tertiary_container": "#4b41e1",
+    "on_tertiary": "#ffffff",
+    "on_surface_variant": "#434655",
+    "on_primary_fixed": "#001551",
+    "primary_fixed": "#dce1ff",
+    "surface_bright": "#faf8ff",
+    "on_primary_container": "#cad3ff",
+    "surface_container_lowest": "#ffffff",
+    "on_primary": "#ffffff",
+    "surface_variant": "#dae2fd",
+    "primary_container": "#1d4ed8"
+  },
+  "designMd": "---\nname: Academic Precision\ncolors:\n  surface: '#faf8ff'\n  surface-dim: '#d2d9f4'\n  surface-bright: '#faf8ff'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#f2f3ff'\n  surface-container: '#eaedff'\n  surface-container-high: '#e2e7ff'\n  surface-container-highest: '#dae2fd'\n  on-surface: '#131b2e'\n  on-surface-variant: '#434655'\n  inverse-surface: '#283044'\n  inverse-on-surface: '#eef0ff'\n  outline: '#747686'\n  outline-variant: '#c4c5d7'\n  surface-tint: '#2151da'\n  primary: '#0037b0'\n  on-primary: '#ffffff'\n  primary-container: '#1d4ed8'\n  on-primary-container: '#cad3ff'\n  inverse-primary: '#b7c4ff'\n  secondary: '#006a61'\n  on-secondary: '#ffffff'\n  secondary-container: '#86f2e4'\n  on-secondary-container: '#006f66'\n  tertiary: '#311fca'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#4b41e1'\n  on-tertiary-container: '#d3d1ff'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#dce1ff'\n  primary-fixed-dim: '#b7c4ff'\n  on-primary-fixed: '#001551'\n  on-primary-fixed-variant: '#0039b5'\n  secondary-fixed: '#89f5e7'\n  secondary-fixed-dim: '#6bd8cb'\n  on-secondary-fixed: '#00201d'\n  on-secondary-fixed-variant: '#005049'\n  tertiary-fixed: '#e2dfff'\n  tertiary-fixed-dim: '#c3c0ff'\n  on-tertiary-fixed: '#0f0069'\n  on-tertiary-fixed-variant: '#3323cc'\n  background: '#faf8ff'\n  on-background: '#131b2e'\n  surface-variant: '#dae2fd'\ntypography:\n  display-hero:\n    fontFamily: Inter\n    fontSize: 36px\n    fontWeight: '700'\n    lineHeight: 44px\n    letterSpacing: -0.025em\n  display-hero-mobile:\n    fontFamily: Inter\n    fontSize: 28px\n    fontWeight: '700'\n    lineHeight: 34px\n    letterSpacing: -0.02em\n  headline-lg:\n    fontFamily: Inter\n    fontSize: 28px\n    fontWeight: '600'\n    lineHeight: 36px\n    letterSpacing: -0.02em\n  headline-lg-mobile:\n    fontFamily: Inter\n    fontSize: 22px\n    fontWeight: '600'\n    lineHeight: 28px\n    letterSpacing: -0.015em\n  headline-md:\n    fontFamily: Inter\n    fontSize: 20px\n    fontWeight: '600'\n    lineHeight: 28px\n    letterSpacing: -0.015em\n  headline-sm:\n    fontFamily: Inter\n    fontSize: 16px\n    fontWeight: '600'\n    lineHeight: 24px\n    letterSpacing: -0.01em\n  body-lg:\n    fontFamily: Inter\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 24px\n  body-md:\n    fontFamily: Inter\n    fontSize: 14px\n    fontWeight: '400'\n    lineHeight: 20px\n  body-sm:\n    fontFamily: Inter\n    fontSize: 12px\n    fontWeight: '400'\n    lineHeight: 16px\n  code-metric:\n    fontFamily: JetBrains Mono\n    fontSize: 13px\n    fontWeight: '500'\n    lineHeight: 18px\n    letterSpacing: -0.01em\n  label-caps:\n    fontFamily: JetBrains Mono\n    fontSize: 11px\n    fontWeight: '600'\n    lineHeight: 14px\n    letterSpacing: 0.05em\n  label-badge:\n    fontFamily: Inter\n    fontSize: 12px\n    fontWeight: '600'\n    lineHeight: 16px\nrounded:\n  sm: 0.125rem\n  DEFAULT: 0.25rem\n  md: 0.375rem\n  lg: 0.5rem\n  xl: 0.75rem\n  full: 9999px\nspacing:\n  gutter: 1rem\n  gutter-desktop: 1.5rem\n  margin: 1rem\n  margin-tablet: 1.5rem\n  margin-desktop: 2rem\n  space-xs: 0.25rem\n  space-sm: 0.5rem\n  space-md: 1rem\n  space-lg: 1.5rem\n  space-xl: 2.5rem\n---\n\n## Brand & Style\n\nThis design system establishes an institutional, high-density computing environment engineered for research university laboratories, core instrumentation facilities, and principal investigators. The aesthetic balances institutional rigor with computational efficiency\u2014evoking top-tier research labs (MIT CSAIL, Stanford Bio-X, ETH Z\u00fcrich). \n\nThe visual style is **Structured Modern / Technical Minimalist**:\n- **Tone:** Authoritative, clinical, audit-ready, and meticulously organized.\n- **Form Follows Function:** Dense information architecture without clutter. Zero decorative gradients, playful visual noise, or ephemeral novelty.\n- **Hierarchy:** High visual contrast driven by stark tabular data structures, razor-sharp 1px dividers, calibrated status indicators, and deliberate typographic weight.\n\n## Colors\n\nThe palette relies on high-contrast cool neutrals alongside purposeful, semantically unambiguous technical accents.\n\n- **Primary Action (`#1D4ED8`):** Restrained technical cobalt. Reserved exclusively for direct user workflows, confirmed reservations, and primary buttons.\n- **Secondary / Data Accent (`#0D9488`):** Deep laboratory teal. Used for hardware telemetry, instrument availability states, and calibrated parameter values.\n- **Tertiary / Machine Intelligence (`#4F46E5`):** Academic indigo. Restricted to AI-driven scheduling suggestions, predictive maintenance alerts, and automated conflict resolutions.\n- **Neutral Core (`#0F172A` to `#F8FAFC`):** Deep slate navy text anchored against pristine white (`#FFFFFF`) cards and micro-cool canvas surfaces (`#F8FAFC`, `#F1F5F9`).\n- **Semantic Indicators:**\n  - Active/Operational: `#059669` (Emerald 600)\n  - Attention/Under Review: `#D97706` (Amber 600)\n  - Out of Service/Critical: `#DC2626` (Red 600)\n  - Scheduled/Queued: `#0284C7` (Sky 600)\n\nNever apply decorative multi-stop gradients, outer glows, or saturated ambient backgrounds. Borders strictly use `#E2E8F0` (light) and `#CBD5E1` (interactive/hover).\n\n## Typography\n\nTypography prioritizes legibility, systematic cadence, and numeric precision:\n\n- **Primary Interface (Inter):** Applied across all structural interfaces, headings, administrative controls, and body copy. Headings utilize tight negative letter spacing (`-0.015em` to `-0.025em`) to present a compact, authoritative stance. All numbers in data contexts must enforce OpenType tabular figures (`font-variant-numeric: tabular-nums`).\n- **Telemetry & Technical Identifiers (JetBrains Mono):** Applied to hardware asset IDs, telemetry outputs, calibration timestamps, serial numbers, and micro metadata tags.\n- **Hierarchy Rules:** Section labels and metadata categories use `label-caps` in uppercase styling with positive tracking (`0.05em`).\n\n## Layout & Spacing\n\nThe layout is built on a high-density, multi-tier grid designed for data consoles, calendar Gantt charts, and resource rosters:\n\n- **Desktop (1280px+):** 12-column fluid grid, 24px (`1.5rem`) gutters, 32px (`2rem`) margins. Content caps at a maximum width of 1600px for ultra-wide lab monitor arrays.\n- **Tablet (768px - 1279px):** 8-column grid, 16px (`1rem`) gutters, 24px (`1.5rem`) margins. Multi-pane panels collapse into stacked split views.\n- **Mobile (<768px):** 4-column layout, 16px (`1rem`) margins. Tabular matrices collapse into stacked, sequential card rows.\n\n### Rhythmic Discipline\n- Spacing strictly scales along a 4px/8px modular base. \n- Form factor touch targets must meet a strict minimum of 44\u00d744px on mobile devices, achieved via internal hit-box expansion while keeping visual labels compact (36px visual height allowed only when padded by accessible container space).\n\n## Elevation & Depth\n\nVisual hierarchy is maintained through crisp physical planes and explicit boundary definitions rather than simulated vertical floating:\n\n- **Plane Separation via 1px Outlines:** The system avoids heavy drop shadows. All surfaces are framed by a high-definition 1px boundary (`#E2E8F0`).\n- **Surface Elevation Hierarchy:**\n  - **Level 0 (Canvas):** `#F8FAFC`. The foundational backdrop.\n  - **Level 1 (Panels & Data Tables):** `#FFFFFF`, bounded by `1px solid #E2E8F0`. Shadow: `0 1px 2px 0 rgba(15, 23, 42, 0.04)`.\n  - **Level 2 (Active Modals & Flyout Inspectors):** `#FFFFFF`, bounded by `1px solid #CBD5E1`. Shadow: `0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04)`.\n- **Zero Glassmorphism:** No backdrop blurs, no semi-transparent glass layers, no ambient color bleeds. Glassmorphism reduces readability during continuous data inspection and is strictly avoided.\n\n## Shapes\n\nThe design system employs a soft, highly controlled architectural corner radius (`roundedness: 1`):\n\n- **Standard Components (Inputs, Buttons, Badges, Dropdowns):** 6px (`0.375rem` / `rounded-md`) standard corner radius.\n- **Structural Containers (Cards, Tabular Frames, Modal Shells):** 8px (`0.5rem` / `rounded-lg`).\n- **Strict Prohibition:** Full-pill shapes (`border-radius: 9999px`) are forbidden for actionable UI controls. Capsule and circular geometries are reserved exclusively for status dot lights (8px) and user avatars (max 32px).\n\n## Components\n\n### 1. Buttons\n- **Primary:** Background `#1D4ED8`, text `#FFFFFF`, 1px border `transparent`, 6px border-radius. Hover: `#1E40AF`. Active: `#172554`. Focus: 2px offset with `#1D4ED8` ring.\n- **Secondary / Neutral:** Background `#FFFFFF`, text `#0F172A`, 1px border `#E2E8F0`. Hover: `#F8FAFC` and border `#CBD5E1`.\n- **Destructive:** Background `#FFFFFF`, text `#DC2626`, 1px border `#FECACA`. Hover: Background `#FEF2F2`.\n- **Dimensions:** Dense 36px visual height for desktop data efficiency; 44px min-height for touch-enabled responsive viewports.\n\n### 2. Status Badges & Hardware Indicators\n- Formed as structured mini-tags (`label-badge`), 6px border-radius, with a 6px solid circular status dot.\n- **Available / Calibrated:** Background `#ECFDF5`, text `#065F46`, border `1px solid #A7F3D0`. Dot: `#059669`.\n- **In Maintenance / Offline:** Background `#FEF2F2`, text `#991B1B`, border `1px solid #FECACA`. Dot: `#DC2626`.\n- **Reserved / Queued:** Background `#F0F9FF`, text `#075985`, border `1px solid #BAE6FD`. Dot: `#0284C7`.\n\n### 3. AI Recommendation & Optimization Panels\n- Background `#F8FAFC`, accented with a solid 3px left vertical indicator bar in `#4F46E5` (Academic Indigo).\n- Header features an \"AI Optimization\" tag accompanied by an explicit explainability breakdown: \"Reason: Minimized idle power & resolved cross-department confocal booking conflict.\"\n- Action buttons inside AI banners are constrained to explicit text buttons: \"Accept Schedule\" or \"Review Conflict Alternatives\".\n\n### 4. Input Fields & Select Controls\n- Top-aligned, uppercase micro-labels (`label-caps`, `#475569`).\n- Inputs: `#FFFFFF` surface, `1px solid #CBD5E1` border, 6px corner radius.\n- Focus State: Border color shifts to `#1D4ED8` with a crisp 1px matching inner glow\u2014no fuzzy outer rings.\n- Tabular numeric fields use `JetBrains Mono`.\n\n### 5. Tables & Resource Matrix\n- Header rows: `#F8FAFC`, 1px solid bottom border `#CBD5E1`, text uppercase 11px JetBrains Mono.\n- Row items: Flat `#FFFFFF`, 1px solid bottom border `#F1F5F9`. Hover state switches to `#F8FAFC`.\n- Compact cell padding: 10px vertical, 16px horizontal to facilitate high row density.\n- Cell data featuring timestamps, instrument run-times, or temperatures must use tabular numerals.",
+  "colorVariant": "FIDELITY",
+  "overridePrimaryColor": "#1d4ed8",
+  "overrideSecondaryColor": "#0d9488",
+  "overrideTertiaryColor": "#4f46e5",
+  "overrideNeutralColor": "#0f172a",
+  "spacingScale": 2,
+  "typography": {
+    "headline-md": {
+      "fontFamily": "Inter",
+      "fontSize": "20px",
+      "fontWeight": "600",
+      "lineHeight": "28px",
+      "letterSpacing": "-0.015em"
+    },
+    "label-caps": {
+      "fontFamily": "JetBrains Mono",
+      "fontSize": "11px",
+      "fontWeight": "600",
+      "lineHeight": "14px",
+      "letterSpacing": "0.05em"
+    },
+    "body-sm": {
+      "fontFamily": "Inter",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "16px"
+    },
+    "headline-sm": {
+      "fontFamily": "Inter",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "24px",
+      "letterSpacing": "-0.01em"
+    },
+    "headline-lg-mobile": {
+      "fontFamily": "Inter",
+      "fontSize": "22px",
+      "fontWeight": "600",
+      "lineHeight": "28px",
+      "letterSpacing": "-0.015em"
+    },
+    "display-hero-mobile": {
+      "fontFamily": "Inter",
+      "fontSize": "28px",
+      "fontWeight": "700",
+      "lineHeight": "34px",
+      "letterSpacing": "-0.02em"
+    },
+    "body-md": {
+      "fontFamily": "Inter",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20px"
+    },
+    "code-metric": {
+      "fontFamily": "JetBrains Mono",
+      "fontSize": "13px",
+      "fontWeight": "500",
+      "lineHeight": "18px",
+      "letterSpacing": "-0.01em"
+    },
+    "headline-lg": {
+      "fontFamily": "Inter",
+      "fontSize": "28px",
+      "fontWeight": "600",
+      "lineHeight": "36px",
+      "letterSpacing": "-0.02em"
+    },
+    "body-lg": {
+      "fontFamily": "Inter",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px"
+    },
+    "display-hero": {
+      "fontFamily": "Inter",
+      "fontSize": "36px",
+      "fontWeight": "700",
+      "lineHeight": "44px",
+      "letterSpacing": "-0.025em"
+    },
+    "label-badge": {
+      "fontFamily": "Inter",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "lineHeight": "16px"
+    }
+  },
+  "spacing": {
+    "space-lg": "1.5rem",
+    "space-xl": "2.5rem",
+    "space-xs": "0.25rem",
+    "margin-tablet": "1.5rem",
+    "margin-desktop": "2rem",
+    "space-sm": "0.5rem",
+    "space-md": "1rem",
+    "gutter": "1rem",
+    "gutter-desktop": "1.5rem",
+    "margin": "1rem"
+  },
+  "headlineFontFamily": "Inter",
+  "bodyFontFamily": "Inter",
+  "labelFontFamily": "JetBrains Mono"
+}

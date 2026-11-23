@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error": "#ba1a1a", "on-tertiary-fixed-variant": "#3323cc", "tertiary-fixed-dim": "#c3c0ff", "on-tertiary": "#ffffff", "surface": "#faf8ff", "on-error": "#ffffff", "surface-container-highest": "#dae2fd", "surface-bright": "#faf8ff", "secondary-fixed": "#89f5e7", "on-background": "#131b2e", "surface-variant": "#dae2fd", "surface-container-lowest": "#ffffff", "on-primary-fixed-variant": "#0039b5", "surface-dim": "#d2d9f4", "on-primary": "#ffffff", "on-primary-container": "#cad3ff", "error-container": "#ffdad6", "primary": "#0037b0", "background": "#faf8ff", "secondary-container": "#86f2e4", "surface-container-low": "#f2f3ff", "outline-variant": "#c4c5d7", "primary-fixed": "#dce1ff", "tertiary-container": "#4b41e1", "on-surface": "#131b2e", "surface-container-high": "#e2e7ff", "surface-container": "#eaedff", "on-tertiary-fixed": "#0f0069", "secondary-fixed-dim": "#6bd8cb", "on-secondary-container": "#006f66", "on-tertiary-container": "#d3d1ff", "primary-container": "#1d4ed8", "outline": "#747686", "surface-tint": "#2151da", "on-error-container": "#93000a", "secondary": "#006a61", "tertiary": "#311fca", "primary-fixed-dim": "#b7c4ff", "inverse-on-surface": "#eef0ff", "on-primary-fixed": "#001551", "on-secondary-fixed-variant": "#005049", "on-secondary": "#ffffff", "on-surface-variant": "#434655", "on-secondary-fixed": "#00201d", "inverse-primary": "#b7c4ff", "inverse-surface": "#283044", "tertiary-fixed": "#e2dfff" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xs": "0.25rem", "gutter-desktop": "1.5rem", "margin-tablet": "1.5rem", "space-md": "1rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "gutter": "1rem", "space-sm": "0.5rem", "margin-desktop": "2rem", "margin": "1rem" }, "fontFamily": { "label-caps": [ "JetBrains Mono" ], "headline-lg-mobile": [ "Inter" ], "body-lg": [ "Inter" ], "label-badge": [ "Inter" ], "display-hero": [ "Inter" ], "display-hero-mobile": [ "Inter" ], "code-metric": [ "JetBrains Mono" ], "headline-md": [ "Inter" ], "body-md": [ "Inter" ], "body-sm": [ "Inter" ], "headline-sm": [ "Inter" ], "headline-lg": [ "Inter" ] }, "fontSize": { "label-caps": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" } ], "headline-lg-mobile": [ "22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "body-lg": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "label-badge": [ "12px", { "lineHeight": "16px", "fontWeight": "600" } ], "display-hero": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" } ], "display-hero-mobile": [ "28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "code-metric": [ "13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "headline-md": [ "20px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "body-md": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "body-sm": [ "12px", { "lineHeight": "16px", "fontWeight": "400" } ], "headline-sm": [ "16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "headline-lg": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="px-space-lg pt-space-lg pb-space-md"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 bg-primary flex items-center justify-center rounded"><span class="font-label-caps text-label-caps text-on-primary font-bold">LL</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface leading-none">LabLink</span><span class="font-label-caps text-label-caps uppercase text-outline mt-1">Cambridge Core Res</span></div></div><div class="mt-space-md p-space-xs bg-surface-container-low rounded flex items-center gap-1"><button class="flex-1 py-1 px-2 text-center rounded bg-surface-container-lowest text-primary font-label-badge text-label-badge shadow-[0_1px_2px_rgba(15,23,42,0.04)]" type="button">Faculty PI</button><button class="flex-1 py-1 px-2 text-center rounded text-outline hover:text-on-surface font-label-badge text-label-badge" type="button">Student</button></div></div><nav class="flex flex-col gap-1 px-space-md mt-space-sm" data-active-classes="bg-primary-container text-on-primary font-semibold rounded"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2 transition-colors bg-primary-container text-on-primary font-semibold rounded" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Overview</span></a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md rounded" data-path="equipment-catalog" href="#"><span class="material-symbols-outlined text-[20px]">biotech</span><span>Equipment Catalog</span></a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md rounded" data-path="scheduling-calendar" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span>Scheduling &amp; Calendar</span></a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md rounded" data-path="approvals-conflicts" href="#"><span class="material-symbols-outlined text-[20px]">verified_user</span><span>Approvals &amp; Conflicts</span><span class="ml-auto bg-surface-container-high text-primary px-1.5 py-0.5 rounded font-code-metric text-code-metric font-semibold">3</span></a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md rounded" data-path="analytics-utilization" href="#"><span class="material-symbols-outlined text-[20px]">insert_chart</span><span>Analytics &amp; Utilization</span></a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md rounded" data-path="maintenance-logs" href="#"><span class="material-symbols-outlined text-[20px]">build_circle</span><span>Maintenance &amp; Logs</span></a></nav></div><div class="p-space-md m-space-md bg-surface-container-low rounded"><div class="flex items-center justify-between mb-1"><span class="font-label-caps text-label-caps text-outline uppercase">AI Core Status</span><span class="w-2 h-2 rounded-full bg-secondary"></span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Resource arbiter synced. Conflict resolution active.</p></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full pl-9 pr-space-md py-1.5 bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-sm text-body-sm rounded outline-none shadow-[0_1px_2px_rgba(15,23,42,0.04)] focus:ring-1 focus:ring-primary-container" placeholder="Search instrumentation, laser core, cryo-EM, reagent IDs..." type="search"/></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded"><span class="material-symbols-outlined text-outline text-[18px]">domain</span><select class="bg-transparent font-label-badge text-label-badge text-on-surface font-semibold outline-none cursor-pointer pr-1"><option>Cavendish Laboratory</option><option>School of Technology</option><option>Nanoscience Centre</option></select></div><button aria-label="Notifications" class="relative p-2 text-outline hover:text-on-surface hover:bg-surface-container-high rounded transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col text-right"><span class="font-headline-sm text-headline-sm font-semibold text-on-surface leading-tight">Prof. Marcus Vance</span><span class="font-label-caps text-label-caps text-outline uppercase">PI • Quantum Nano</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<div class="w-full max-w-[1600px] mx-auto px-margin-desktop py-space-lg flex flex-col gap-space-lg">
+<!-- Top Management Context & Controls -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-md border-b border-surface-container-highest">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-primary uppercase font-bold tracking-wider">Facility Hub • Cavendish Core</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-code-metric text-code-metric text-on-surface-variant font-medium">CAM-NANO-0941</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+          Prof. Marcus Vance — Cavendish Nanomaterials &amp; Cleanroom Facility
+        </h1>
+<div class="flex flex-wrap items-center gap-x-space-md gap-y-1 font-body-sm text-body-sm text-on-surface-variant mt-1">
+<span class="inline-flex items-center gap-1.5 text-secondary font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+            Facility Operations: Nominal
+          </span>
+<span class="text-outline-variant">•</span>
+<span class="font-code-metric text-code-metric">Live Active Instruments: <strong class="text-on-surface">18/24</strong></span>
+<span class="text-outline-variant">•</span>
+<span class="font-code-metric text-code-metric">HVAC ISO-5 Spec: <span class="text-secondary font-semibold">Locked (0.3µm &lt; 3520/m³)</span></span>
+<span class="text-outline-variant">•</span>
+<span class="font-code-metric text-code-metric">Cryo-Storage: <strong class="text-on-surface">-195.8°C</strong></span>
+</div>
+</div>
+<!-- Quick Action Controls -->
+<div class="flex flex-wrap items-center gap-space-xs self-start lg:self-center">
+<button class="inline-flex items-center gap-1.5 px-3 py-2 bg-surface-container-lowest text-error font-label-badge text-label-badge rounded shadow-sm border border-error-container hover:bg-error-container hover:text-on-error-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">lock_reset</span>
+          Emergency Lockout
+        </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-2 bg-surface-container-lowest text-on-surface font-label-badge text-label-badge rounded shadow-sm border border-surface-container-high hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+          Audit Log
+        </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-2 bg-primary text-on-primary font-label-badge text-label-badge rounded shadow-sm hover:bg-primary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">analytics</span>
+          Generate Usage Report
+        </button>
+</div>
+</div>
+<!-- KPI Metrics Bar -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest rounded p-space-md shadow-sm border-l-4 border-l-error flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-error font-bold">Contention Alert</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface mt-1">1 Critical Conflict</span>
+</div>
+<span class="w-8 h-8 rounded bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3">
+          JEOL FE-SEM Bay 4-East contested across two tier-1 research grants.
+        </p>
+<div class="mt-space-sm pt-space-xs border-t border-surface-container-high flex items-center justify-between text-error font-label-badge text-label-badge">
+<span>Resolution Required by 13:00</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest rounded p-space-md shadow-sm border-l-4 border-l-primary flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline font-bold">Protocol Approvals</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface mt-1">3 Pending Requests</span>
+</div>
+<span class="w-8 h-8 rounded bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3">
+          Graduate access queue: 2 Cryo-FIB and 1 Powder XRD waiting sign-off.
+        </p>
+<div class="mt-space-sm pt-space-xs border-t border-surface-container-high flex items-center justify-between text-primary font-label-badge text-label-badge">
+<span>AI Safety Score: All &gt; 92%</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest rounded p-space-md shadow-sm border-l-4 border-l-tertiary flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline font-bold">Facility Saturation</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface mt-1">84.2% Capacity</span>
+</div>
+<span class="w-8 h-8 rounded bg-surface-container-high text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">timelapse</span>
+</span>
+</div>
+<div class="w-full bg-surface-container mt-3 h-2 rounded overflow-hidden">
+<div class="bg-tertiary h-full rounded" style="width: 84.2%;"></div>
+</div>
+<div class="mt-space-sm pt-space-xs border-t border-surface-container-high flex items-center justify-between font-label-caps text-label-caps text-on-surface-variant">
+<span>Peak: SEM &amp; NMR Bays</span>
+<span class="font-code-metric text-code-metric text-on-surface font-semibold">+6.4% vs last week</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest rounded p-space-md shadow-sm border-l-4 border-l-secondary flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline font-bold">Compliance &amp; Calibrations</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface mt-1">100% Up to Date</span>
+</div>
+<span class="w-8 h-8 rounded bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3">
+          Next cycle: Bruker 600MHz NMR probe drift check scheduled for 18:00 today.
+        </p>
+<div class="mt-space-sm pt-space-xs border-t border-surface-container-high flex items-center justify-between font-label-badge text-label-badge text-secondary">
+<span class="inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Zero Active Safety Violations
+          </span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Main Split Grid: Left Priority Workflow (7 cols) / Right Schedule & Ops (5 cols) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- LEFT COLUMN -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Critical Conflict Card -->
+<div class="bg-surface-container-lowest rounded shadow-sm border border-surface-container-high overflow-hidden">
+<div class="px-space-md py-space-sm bg-surface-container-high/60 flex items-center justify-between border-b border-surface-container-high">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-pulse"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-error font-bold">Active Priority Contention</span>
+<span class="text-outline-variant font-code-metric">|</span>
+<span class="font-code-metric text-code-metric text-on-surface-variant font-semibold">Incident #CR-4402</span>
+</div>
+<span class="font-label-badge text-label-badge bg-error-container text-on-error-container px-2 py-0.5 rounded font-semibold">Auto-Arbitrated</span>
+</div>
+<div class="p-space-md flex flex-col gap-space-md">
+<!-- Hardware & Overlap Spec -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm p-space-sm bg-surface-container-low rounded">
+<div>
+<span class="font-label-caps text-label-caps uppercase text-outline block">Contested Equipment</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">JEOL JSM-7800F FE-SEM</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">Location: Cleanroom Bay 4-East (Ultra-High Vacuum Core)</span>
+</div>
+<div class="text-left sm:text-right">
+<span class="font-label-caps text-label-caps uppercase text-outline block">Overlapping Window</span>
+<span class="font-code-metric text-code-metric font-bold text-error">Today, 14:00 – 18:00</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant block mt-0.5">Total Contention: 4.0 Hours</span>
+</div>
+</div>
+<!-- Contending Parties Comparison -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<!-- Party A -->
+<div class="p-space-sm rounded bg-surface border border-primary/20 flex flex-col justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge bg-primary-fixed text-on-primary-fixed px-1.5 py-0.5 rounded font-bold">Requester A</span>
+<span class="font-label-caps text-label-caps text-error font-bold">Critical Urgency</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface mt-1">Alex Chen</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">PhD Candidate, Year 2 • Quantum Devices</span>
+<div class="mt-2 text-body-sm text-on-surface flex items-start gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-error mt-0.5">priority_high</span>
+<span><strong>Hard Thesis Milestone:</strong> Final thesis transmission deadline Nov 8 (48 hours remaining).</span>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-surface-container-high flex items-center justify-between text-body-sm">
+<span class="font-label-caps text-label-caps text-outline">PRIORITY FACTOR</span>
+<span class="font-code-metric text-code-metric font-bold text-primary">0.96 / 1.00</span>
+</div>
+</div>
+<!-- Party B -->
+<div class="p-space-sm rounded bg-surface border border-surface-container-high flex flex-col justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge bg-surface-container-high text-on-surface-variant px-1.5 py-0.5 rounded font-bold">Requester B</span>
+<span class="font-label-caps text-label-caps text-secondary font-bold">High Flexibility</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface mt-1">Dr. Priya Patel</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Postdoctoral Fellow • Optoelectronics</span>
+<div class="mt-2 text-body-sm text-on-surface flex items-start gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary mt-0.5">sync_alt</span>
+<span><strong>Project Stage:</strong> Exploratory characterization runs. Sample batch viable through Nov 14.</span>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-surface-container-high flex items-center justify-between text-body-sm">
+<span class="font-label-caps text-label-caps text-outline">EQUIVALENCY MATCH</span>
+<span class="font-code-metric text-code-metric font-bold text-secondary">Zeiss Gemini (100% Spec Match)</span>
+</div>
+</div>
+</div>
+<!-- AI Algorithmic Trade-off Engine Panel -->
+<div class="p-space-md bg-surface-container-low rounded border-l-4 border-l-tertiary-container flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+<span class="font-label-caps text-label-caps uppercase font-bold tracking-wider">AI Optimization Engine • Pareto Fairness Arbiter</span>
+</div>
+<span class="font-code-metric text-code-metric text-on-surface-variant font-medium">Confidence: 98.4%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong>Recommended Resolution:</strong> Award primary slot (14:00 – 18:00) on JEOL JSM-7800F to <strong>Alex Chen</strong> to satisfy thesis submission cutoff. Re-route <strong>Dr. Priya Patel</strong> to the adjacent, currently idle <strong>Zeiss Gemini 500 SEM (Bay 3-West)</strong> for identical resolution imaging with automated beam profile calibration loaded.
+              </p>
+<div class="flex flex-wrap items-center gap-space-xs pt-space-xs text-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1 font-label-badge text-label-badge bg-surface-container-highest px-2 py-0.5 rounded text-primary">
+<span class="material-symbols-outlined text-[14px]">check</span> Zero Project Delay
+                </span>
+<span class="inline-flex items-center gap-1 font-label-badge text-label-badge bg-surface-container-highest px-2 py-0.5 rounded text-primary">
+<span class="material-symbols-outlined text-[14px]">bolt</span> Preserves 4.0h Run Time
+                </span>
+</div>
+</div>
+<!-- Action Controls -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<button class="inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-on-primary font-label-badge text-label-badge rounded hover:bg-primary-container transition-colors shadow-sm font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+                  Approve AI Allocation &amp; Notify Both
+                </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-2 bg-surface-container-lowest text-on-surface font-label-badge text-label-badge rounded border border-surface-container-high hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">splitscreen</span>
+                  Split Slot (2h Each)
+                </button>
+</div>
+<button class="font-label-badge text-label-badge text-primary hover:underline inline-flex items-center gap-1" type="button">
+                Open Full Conflict Matrix
+                <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pending Protocol Requests Table -->
+<div class="bg-surface-container-lowest rounded shadow-sm border border-surface-container-high flex flex-col">
+<div class="p-space-md flex items-center justify-between border-b border-surface-container-high">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Standard Protocol Access Requests</span>
+<span class="bg-surface-container-high text-primary px-2 py-0.5 rounded font-code-metric text-code-metric font-bold">3 In Queue</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-outline">Filter:</span>
+<span class="font-label-badge text-label-badge text-on-surface font-semibold bg-surface-container-low px-2 py-1 rounded">All Depts</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/70 border-b border-surface-container-high font-label-caps text-label-caps uppercase text-outline">
+<th class="py-2.5 px-3">Student &amp; Dept</th>
+<th class="py-2.5 px-3">Hardware &amp; Bay</th>
+<th class="py-2.5 px-3">Window</th>
+<th class="py-2.5 px-3">Safety • AI Check</th>
+<th class="py-2.5 px-3 text-right">Action Decision</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high font-body-sm text-body-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Yuki Tanaka</span>
+<span class="text-on-surface-variant font-label-caps text-label-caps">Materials Sci (MS-1)</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Bruker D8 XRD</span>
+<span class="font-label-caps text-label-caps text-outline">Diffraction Suite 1</span>
+</div>
+</td>
+<td class="py-3 px-3 font-code-metric text-code-metric">
+<span>Nov 7, 09:00 - 12:00</span>
+<span class="block text-on-surface-variant text-[11px]">3.0h slot</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="font-label-badge text-label-badge bg-secondary-container text-on-secondary-container px-1.5 py-0.5 rounded font-bold">Lvl 2 Rad</span>
+<span class="font-code-metric text-code-metric font-semibold text-secondary">96%</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded bg-primary text-on-primary hover:bg-primary-container transition-colors" title="Approve" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+<button class="p-1 rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" title="Assign Technician" type="button">
+<span class="material-symbols-outlined text-[16px]">person_add</span>
+</button>
+<button class="p-1 rounded bg-surface-container-low text-error hover:bg-error-container transition-colors" title="Reject" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Liam O'Connor</span>
+<span class="text-on-surface-variant font-label-caps text-label-caps">Bio-Physics (PhD-3)</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Titan Krios Cryo-TEM</span>
+<span class="font-label-caps text-label-caps text-outline">Cryo-EM Cell B</span>
+</div>
+</td>
+<td class="py-3 px-3 font-code-metric text-code-metric">
+<span>Nov 7, 13:00 - 19:00</span>
+<span class="block text-on-surface-variant text-[11px]">6.0h slot</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="font-label-badge text-label-badge bg-primary-fixed text-on-primary-fixed px-1.5 py-0.5 rounded font-bold">Lvl 3 Bio</span>
+<span class="font-code-metric text-code-metric font-semibold text-secondary">92%</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded bg-primary text-on-primary hover:bg-primary-container transition-colors" title="Approve" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+<button class="p-1 rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" title="Assign Technician" type="button">
+<span class="material-symbols-outlined text-[16px]">person_add</span>
+</button>
+<button class="p-1 rounded bg-surface-container-low text-error hover:bg-error-container transition-colors" title="Reject" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Kavita Rao</span>
+<span class="text-on-surface-variant font-label-caps text-label-caps">Nano-Eng (PhD-1)</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Oxford Plasma Etcher</span>
+<span class="font-label-caps text-label-caps text-outline">Cleanroom Litho-2</span>
+</div>
+</td>
+<td class="py-3 px-3 font-code-metric text-code-metric">
+<span>Nov 8, 10:00 - 12:00</span>
+<span class="block text-on-surface-variant text-[11px]">2.0h slot</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="font-label-badge text-label-badge bg-error-container text-on-error-container px-1.5 py-0.5 rounded font-bold">Gas Cert Req</span>
+<span class="font-code-metric text-code-metric font-semibold text-error">78%</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="px-2 py-1 rounded bg-surface-container-high text-primary font-label-caps text-label-caps font-bold hover:bg-surface-container-highest transition-colors" title="Needs Tech Supervision" type="button">
+                        Assign Tech
+                      </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-space-sm bg-surface-container-low/40 border-t border-surface-container-high flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Showing 3 of 14 logged weekly requisitions</span>
+<button class="text-primary font-label-badge text-label-badge hover:underline" type="button">View All Protocols Archive →</button>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Today's Facility Timeline (Gantt Mini Track) -->
+<div class="bg-surface-container-lowest rounded shadow-sm border border-surface-container-high p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Today's Timeline • Bay Tracks</span>
+<span class="font-label-caps text-label-caps uppercase text-outline">Real-Time Instrument Run Telemetry</span>
+</div>
+<span class="font-code-metric text-code-metric font-bold text-primary px-2 py-0.5 bg-primary-fixed rounded">LIVE: 13:42 GMT</span>
+</div>
+<!-- Timeline header markings -->
+<div class="grid grid-cols-6 text-center font-label-caps text-label-caps text-outline border-b border-surface-container-high pb-1 pt-2">
+<span>10:00</span>
+<span>12:00</span>
+<span class="text-primary font-bold">14:00 (Now)</span>
+<span>16:00</span>
+<span>18:00</span>
+<span>20:00</span>
+</div>
+<!-- Bay Track Rows -->
+<div class="flex flex-col gap-2.5 pt-1">
+<!-- Bay 1 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-caps text-label-caps">
+<span class="text-on-surface font-semibold">Bay 1 • Bruker NMR 600</span>
+<span class="text-secondary font-semibold">Active: Dr. S. Weber (82%)</span>
+</div>
+<div class="w-full h-6 bg-surface-container-low rounded relative overflow-hidden flex items-center">
+<!-- run block -->
+<div class="absolute left-[10%] w-[65%] h-full bg-secondary-fixed/50 border border-secondary text-[11px] font-code-metric text-on-secondary-container flex items-center px-2 rounded-sm truncate">
+                  10:30 – 17:30 [Dr. Weber: Protein Fold Matrix]
+                </div>
+<!-- live vertical hairline -->
+<div class="absolute left-[45%] top-0 bottom-0 w-0.5 bg-primary z-10"></div>
+</div>
+</div>
+<!-- Bay 2 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-caps text-label-caps">
+<span class="text-on-surface font-semibold">Bay 2 • Oxford XRD High-Res</span>
+<span class="text-outline font-semibold">Idle • Next slot 15:00</span>
+</div>
+<div class="w-full h-6 bg-surface-container-low rounded relative overflow-hidden flex items-center">
+<div class="absolute left-[55%] w-[35%] h-full bg-primary-fixed/50 border border-primary text-[11px] font-code-metric text-on-primary-fixed flex items-center px-2 rounded-sm truncate">
+                  15:00 – 18:30 [Thin Film Perovskite]
+                </div>
+<div class="absolute left-[45%] top-0 bottom-0 w-0.5 bg-primary z-10"></div>
+</div>
+</div>
+<!-- Bay 3 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-caps text-label-caps">
+<span class="text-on-surface font-semibold">Bay 3 • Zeiss Gemini 500 SEM</span>
+<span class="text-secondary font-semibold">Cleaned • Standby Warm</span>
+</div>
+<div class="w-full h-6 bg-surface-container-low rounded relative overflow-hidden flex items-center">
+<div class="absolute left-[48%] w-[42%] h-full bg-surface-container-highest border border-tertiary-container text-[11px] font-code-metric text-tertiary flex items-center px-2 rounded-sm truncate">
+                  14:15 Re-route Queue (Dr. P. Patel)
+                </div>
+<div class="absolute left-[45%] top-0 bottom-0 w-0.5 bg-primary z-10"></div>
+</div>
+</div>
+<!-- Bay 4 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-caps text-label-caps">
+<span class="text-on-surface font-semibold">Bay 4 • JEOL FE-SEM 7800F</span>
+<span class="text-error font-bold">Contention Pending Resolution</span>
+</div>
+<div class="w-full h-6 bg-surface-container-low rounded relative overflow-hidden flex items-center">
+<div class="absolute left-[46%] w-[44%] h-full bg-error-container/70 border border-error text-[11px] font-code-metric text-on-error-container flex items-center px-2 rounded-sm truncate font-semibold">
+                  14:00 – 18:00 [CONFLICT: Chen vs Patel]
+                </div>
+<div class="absolute left-[45%] top-0 bottom-0 w-0.5 bg-primary z-10"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-surface-container-high font-body-sm text-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              Blue needle = Real-Time Indicator
+            </span>
+<button class="text-primary font-label-badge text-label-badge hover:underline" type="button">Full 7-Day Gantt →</button>
+</div>
+</div>
+<!-- Facility Sub-Cluster Health & Utilization -->
+<div class="bg-surface-container-lowest rounded shadow-sm border border-surface-container-high p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Cluster Utilization &amp; Health</span>
+<span class="font-label-caps text-label-caps text-secondary font-bold uppercase">All Sub-systems 100%</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Meter 1 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="font-medium text-on-surface">Nanotech Lab Complex (B4)</span>
+<span class="font-code-metric text-code-metric font-bold text-on-surface">88% Load</span>
+</div>
+<div class="w-full bg-surface-container-low h-2.5 rounded overflow-hidden">
+<div class="bg-primary h-full rounded" style="width: 88%;"></div>
+</div>
+<span class="font-label-caps text-label-caps text-outline">7 of 8 Instruments Active • Temp: 20.1°C ± 0.1</span>
+</div>
+<!-- Meter 2 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="font-medium text-on-surface">Cleanroom ISO-5 Core Suite A</span>
+<span class="font-code-metric text-code-metric font-bold text-on-surface">62% Load</span>
+</div>
+<div class="w-full bg-surface-container-low h-2.5 rounded overflow-hidden">
+<div class="bg-secondary h-full rounded" style="width: 62%;"></div>
+</div>
+<span class="font-label-caps text-label-caps text-outline">Pressure: +35 Pa • Particle Spec: Nominal</span>
+</div>
+<!-- Meter 3 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="font-medium text-on-surface">Mechatronics &amp; Micro-Fab Cell C</span>
+<span class="font-code-metric text-code-metric font-bold text-on-surface">45% Load</span>
+</div>
+<div class="w-full bg-surface-container-low h-2.5 rounded overflow-hidden">
+<div class="bg-tertiary h-full rounded" style="width: 45%;"></div>
+</div>
+<span class="font-label-caps text-label-caps text-outline">3 CNC wire EDM running autonomous cycles</span>
+</div>
+</div>
+</div>
+<!-- Equipment Maintenance Radar & Calibrations -->
+<div class="bg-surface-container-lowest rounded shadow-sm border border-surface-container-high p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Preventive Maintenance Radar</span>
+<span class="font-label-caps text-label-caps text-outline uppercase font-semibold">Next 48 Hours</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- Event 1 -->
+<div class="p-space-sm bg-surface-container-low rounded flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">build</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md font-semibold text-on-surface">Bruker NMR 600 Cryo-Purge</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Scheduled LN2 replenishment • Bay 1</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-code-metric text-code-metric font-bold text-primary block">Today 18:00</span>
+<span class="font-label-badge text-label-badge text-secondary font-medium">Tech: G. Harris</span>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="p-space-sm bg-surface-container-low rounded flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md font-semibold text-on-surface">Laser Core Alignment</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ti:Sapphire beam path calibration</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-code-metric text-code-metric font-bold text-on-surface block">Tomorrow 07:30</span>
+<span class="font-label-badge text-label-badge text-outline font-medium">Bay 2-West</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error": "#ba1a1a", "on-tertiary-fixed-variant": "#3323cc", "tertiary-fixed-dim": "#c3c0ff", "on-tertiary": "#ffffff", "surface": "#faf8ff", "on-error": "#ffffff", "surface-container-highest": "#dae2fd", "surface-bright": "#faf8ff", "secondary-fixed": "#89f5e7", "on-background": "#131b2e", "surface-variant": "#dae2fd", "surface-container-lowest": "#ffffff", "on-primary-fixed-variant": "#0039b5", "surface-dim": "#d2d9f4", "on-primary": "#ffffff", "on-primary-container": "#cad3ff", "error-container": "#ffdad6", "primary": "#0037b0", "background": "#faf8ff", "secondary-container": "#86f2e4", "surface-container-low": "#f2f3ff", "outline-variant": "#c4c5d7", "primary-fixed": "#dce1ff", "tertiary-container": "#4b41e1", "on-surface": "#131b2e", "surface-container-high": "#e2e7ff", "surface-container": "#eaedff", "on-tertiary-fixed": "#0f0069", "secondary-fixed-dim": "#6bd8cb", "on-secondary-container": "#006f66", "on-tertiary-container": "#d3d1ff", "primary-container": "#1d4ed8", "outline": "#747686", "surface-tint": "#2151da", "on-error-container": "#93000a", "secondary": "#006a61", "tertiary": "#311fca", "primary-fixed-dim": "#b7c4ff", "inverse-on-surface": "#eef0ff", "on-primary-fixed": "#001551", "on-secondary-fixed-variant": "#005049", "on-secondary": "#ffffff", "on-surface-variant": "#434655", "on-secondary-fixed": "#00201d", "inverse-primary": "#b7c4ff", "inverse-surface": "#283044", "tertiary-fixed": "#e2dfff" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xs": "0.25rem", "gutter-desktop": "1.5rem", "margin-tablet": "1.5rem", "space-md": "1rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "gutter": "1rem", "space-sm": "0.5rem", "margin-desktop": "2rem", "margin": "1rem" }, "fontFamily": { "label-caps": [ "JetBrains Mono" ], "headline-lg-mobile": [ "Inter" ], "body-lg": [ "Inter" ], "label-badge": [ "Inter" ], "display-hero": [ "Inter" ], "display-hero-mobile": [ "Inter" ], "code-metric": [ "JetBrains Mono" ], "headline-md": [ "Inter" ], "body-md": [ "Inter" ], "body-sm": [ "Inter" ], "headline-sm": [ "Inter" ], "headline-lg": [ "Inter" ] }, "fontSize": { "label-caps": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" } ], "headline-lg-mobile": [ "22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "body-lg": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "label-badge": [ "12px", { "lineHeight": "16px", "fontWeight": "600" } ], "display-hero": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" } ], "display-hero-mobile": [ "28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "code-metric": [ "13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "headline-md": [ "20px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "body-md": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "body-sm": [ "12px", { "lineHeight": "16px", "fontWeight": "400" } ], "headline-sm": [ "16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "headline-lg": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="px-space-lg pt-space-lg pb-space-md"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 bg-primary flex items-center justify-center rounded"><span class="font-label-caps text-label-caps text-on-primary font-bold">LL</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface leading-none">LabLink</span><span class="font-label-caps text-label-caps uppercase text-outline mt-1">Cambridge Core Res</span></div></div><div class="mt-space-md p-space-xs bg-surface-container-low rounded flex items-center gap-1"><button class="flex-1 py-1 px-2 text-center rounded bg-surface-container-lowest text-primary font-label-badge text-label-badge shadow-[0_1px_2px_rgba(15,23,42,0.04)]" type="button">Faculty PI</button><button class="flex-1 py-1 px-2 text-center rounded text-outline hover:text-on-surface font-label-badge text-label-badge" type="button">Student</button></div></div><nav class="flex flex-col gap-1 px-space-md mt-space-sm" data-active-classes="bg-primary-container text-on-primary font-semibold rounded"><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md rounded" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Overview</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2 transition-colors bg-primary-container text-on-primary font-semibold rounded" data-path="equipment-catalog" href="#"><span class="material-symbols-outlined text-[20px]">biotech</span><span>Equipment Catalog</span></a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md rounded" data-path="scheduling-calendar" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span>Scheduling &amp; Calendar</span></a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md rounded" data-path="approvals-conflicts" href="#"><span class="material-symbols-outlined text-[20px]">verified_user</span><span>Approvals &amp; Conflicts</span><span class="ml-auto bg-surface-container-high text-primary px-1.5 py-0.5 rounded font-code-metric text-code-metric font-semibold">3</span></a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md rounded" data-path="analytics-utilization" href="#"><span class="material-symbols-outlined text-[20px]">insert_chart</span><span>Analytics &amp; Utilization</span></a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md rounded" data-path="maintenance-logs" href="#"><span class="material-symbols-outlined text-[20px]">build_circle</span><span>Maintenance &amp; Logs</span></a></nav></div><div class="p-space-md m-space-md bg-surface-container-low rounded"><div class="flex items-center justify-between mb-1"><span class="font-label-caps text-label-caps text-outline uppercase">AI Core Status</span><span class="w-2 h-2 rounded-full bg-secondary"></span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Resource arbiter synced. Conflict resolution active.</p></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full pl-9 pr-space-md py-1.5 bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-sm text-body-sm rounded outline-none shadow-[0_1px_2px_rgba(15,23,42,0.04)] focus:ring-1 focus:ring-primary-container" placeholder="Search instrumentation, laser core, cryo-EM, reagent IDs..." type="search"/></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded"><span class="material-symbols-outlined text-outline text-[18px]">domain</span><select class="bg-transparent font-label-badge text-label-badge text-on-surface font-semibold outline-none cursor-pointer pr-1"><option>Cavendish Laboratory</option><option>School of Technology</option><option>Nanoscience Centre</option></select></div><button aria-label="Notifications" class="relative p-2 text-outline hover:text-on-surface hover:bg-surface-container-high rounded transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col text-right"><span class="font-headline-sm text-headline-sm font-semibold text-on-surface leading-tight">Prof. Marcus Vance</span><span class="font-label-caps text-label-caps text-outline uppercase">PI • Quantum Nano</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Command Header & Telemetry Band -->
+<section class="w-full px-space-lg pt-space-lg pb-space-md bg-surface-container-lowest shadow-sm">
+<div class="max-w-[1600px] mx-auto flex flex-col gap-space-md">
+<!-- Title & Context Overline -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps text-outline uppercase tracking-wider mb-1">
+<span>Core Facility Roster</span>
+<span class="text-outline-variant">/</span>
+<span>Cambridge High-Flux Infrastructure</span>
+<span class="text-outline-variant">/</span>
+<span class="text-secondary font-semibold">142 Instruments Active</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+            Instrumentation &amp; Laboratory Core Facilities Catalog
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl mt-0.5">
+            Discover, verify certification prerequisites, and dispatch execution slots across cross-departmental research apparatus, microscopes, spectrometers, and compute nodes.
+          </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<div class="flex items-center gap-space-xs px-3 py-1.5 bg-surface-container text-on-surface font-code-metric text-code-metric rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+<span>PI Grant Active: <strong class="text-primary font-bold">EPSRC-EP/V02844</strong></span>
+</div>
+<button class="px-3 py-1.5 bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-badge text-label-badge rounded flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Saved Presets (3)</span>
+</button>
+</div>
+</div>
+<!-- Omnisearch Bar with Hotkey Cue -->
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full pl-11 pr-24 py-2.5 bg-surface text-on-surface placeholder:text-outline font-body-md text-body-md rounded shadow-sm focus:outline-none focus:bg-surface-container-lowest" id="instrument-search" placeholder="Search 142 instruments by model, analytical technique, building room, or custodian PI..." type="search"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center gap-1">
+<span class="px-1.5 py-0.5 bg-surface-container-high text-outline font-code-metric text-[11px] rounded">⌘</span>
+<span class="px-1.5 py-0.5 bg-surface-container-high text-outline font-code-metric text-[11px] rounded">K</span>
+</div>
+</div>
+<!-- Multitier Filter Controls -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<!-- Department Select -->
+<div class="flex items-center gap-1 bg-surface px-2.5 py-1.5 rounded shadow-sm">
+<span class="font-label-caps text-label-caps text-outline uppercase">Dept:</span>
+<select class="bg-transparent font-label-badge text-label-badge text-on-surface font-medium outline-none cursor-pointer">
+<option>All Departments</option>
+<option>Materials Science &amp; Metallurgy</option>
+<option>Bioengineering &amp; Biophysics</option>
+<option>Physics (Cavendish)</option>
+<option>Chemical Engineering</option>
+<option>Computing &amp; Information</option>
+</select>
+</div>
+<!-- Facility Location Select -->
+<div class="flex items-center gap-1 bg-surface px-2.5 py-1.5 rounded shadow-sm">
+<span class="font-label-caps text-label-caps text-outline uppercase">Facility:</span>
+<select class="bg-transparent font-label-badge text-label-badge text-on-surface font-medium outline-none cursor-pointer">
+<option>All Sites (Cavendish, West Cam, Maxwell)</option>
+<option>Cavendish Laboratory (Core Phase 1)</option>
+<option>Maxwell Centre Cleanrooms</option>
+<option>West Cambridge Bio-Annex</option>
+<option>Turing High-Performance Data Rack</option>
+</select>
+</div>
+<!-- Tier Certification Toggle -->
+<div class="flex items-center bg-surface p-0.5 rounded shadow-sm">
+<button class="px-2.5 py-1 text-on-surface-variant font-label-badge text-label-badge rounded hover:text-on-surface" type="button">All Access Tiers</button>
+<button class="px-2.5 py-1 bg-primary text-on-primary font-label-badge text-label-badge rounded font-semibold flex items-center gap-1 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+<span>My Certified (Tier 3 Only)</span>
+</button>
+</div>
+</div>
+<!-- Status Filter Chips -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-0.5">
+<button class="px-2.5 py-1 rounded bg-secondary-fixed/50 hover:bg-secondary-fixed text-on-secondary-container font-label-badge text-label-badge flex items-center gap-1.5 transition-colors" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Available Now (48)</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-badge text-label-badge flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px] text-tertiary">bolt</span>
+<span>Instant AI Booking</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-variant text-on-surface-variant font-label-badge text-label-badge flex items-center gap-1 transition-colors" type="button">
+<span>Requires PI Sign-off</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-error-container/60 hover:bg-error-container text-on-error-container font-label-badge text-label-badge flex items-center gap-1.5 transition-colors" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>In Calibration (9)</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Content Split View Layout -->
+<div class="w-full px-space-lg py-space-md">
+<div class="max-w-[1600px] mx-auto grid grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Instrument Cards Matrix (7 Cols on Wide Desktop) -->
+<section class="col-span-12 xl:col-span-7 flex flex-col gap-space-md">
+<!-- Matrix Results Stats Banner -->
+<div class="flex items-center justify-between bg-surface-container-lowest px-space-md py-2 rounded shadow-sm">
+<div class="flex items-center gap-space-xs font-code-metric text-code-metric text-on-surface">
+<span class="font-bold text-primary">6</span>
+<span class="text-on-surface-variant">instruments shown in active filter scope</span>
+<span class="text-outline-variant">•</span>
+<span class="text-secondary font-semibold">Priority Arbiter: Tier 3 Direct Grant Match</span>
+</div>
+<div class="flex items-center gap-2 text-outline">
+<button aria-label="Dense Grid View" class="p-1 hover:text-on-surface text-primary rounded bg-surface-container-high">
+<span class="material-symbols-outlined text-[18px]">view_agenda</span>
+</button>
+<button aria-label="Compact Table View" class="p-1 hover:text-on-surface rounded">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+</button>
+</div>
+</div>
+<!-- Cards Container -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md" id="catalog-card-container">
+<!-- Card 1: JEOL JSM-7800F FE-SEM (Active / Selected by Default) -->
+<article class="group cursor-pointer bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden relative ring-2 ring-primary" id="card-jeol-7800f" onclick="selectInstrument('jeol-7800f')">
+<!-- Top AI Match Flag -->
+<div class="flex items-center justify-between px-3 pt-3 pb-2 bg-surface-container-low">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-code-metric text-[11px] font-bold">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span>98% Optimal Match</span>
+</div>
+<span class="font-code-metric text-[11px] text-outline">ID: MAT-SEM-04</span>
+</div>
+<!-- Thumbnail & Location Preview -->
+<div class="relative h-44 w-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Ultra high resolution research grade field emission scanning electron microscope JEOL model in a sterile university cleanroom laboratory with stainless steel vacuum chambers, precision electron optical column, dual monitor telemetry console, vacuum gauges, and muted cool blue LED illumination under clinical sterile academic conditions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdVINy22aT-uiBoo2ck3KftAHY5mwV58sAIs5Fx2swq18-I4Snh8GEw4FUVjVTWDOGfjOQ1NTBRDzEwFcLU-MROFqByVUqSvzE2VZYDRYDX-wK3Ot5FVsc9uwVo5rxcuxPcOC4vccrmpvdXTu5BaOCZGYJXL8evTSOS7W6hpHZCJjOLdu9-5Ztu8rpTTmja9cLJsjlxRr2fc1HfBm08ImGJ3QbEJZbBS96Q6x7If5K"/>
+<div class="absolute bottom-2 left-2 bg-surface-container-lowest/90 px-2 py-0.5 rounded text-on-surface font-label-badge text-label-badge flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">location_on</span>
+<span>Cavendish Room 204</span>
+</div>
+</div>
+<!-- Content Body -->
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-start justify-between gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface leading-snug">
+                    JEOL JSM-7800F FE-SEM
+                  </h2>
+<span class="shrink-0 font-code-metric text-code-metric px-1.5 py-0.5 bg-surface-container-high rounded text-on-surface font-semibold">Tier 3</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                  Schottky field emission gun with beam deceleration mode. In-lens secondary and backscatter detectors for sub-nanometer topography.
+                </p>
+</div>
+<!-- Tech Highlights Grid -->
+<div class="grid grid-cols-2 gap-1.5 pt-2 bg-surface-container-low p-2 rounded">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline uppercase">Resolution</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">0.8 nm @ 15 kV</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline uppercase">Acc. Voltage</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">0.01 - 30 kV</span>
+</div>
+</div>
+<!-- Status Footer -->
+<div class="flex items-center justify-between pt-1 font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-code-metric text-[12px] font-semibold text-on-surface">In Use (Free 14:00)</span>
+</div>
+<span class="text-primary font-label-badge text-label-badge font-semibold group-hover:underline flex items-center">
+                  Inspect <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</span>
+</div>
+</div>
+</article>
+<!-- Card 2: NVIDIA DGX H100 Cluster Node 4 -->
+<article class="group cursor-pointer bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden relative" id="card-dgx-h100" onclick="selectInstrument('dgx-h100')">
+<div class="flex items-center justify-between px-3 pt-3 pb-2 bg-surface-container-low">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-container font-code-metric text-[11px] font-bold">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Instant Slurm Queue</span>
+</div>
+<span class="font-code-metric text-[11px] text-outline">ID: HPC-DGX-04</span>
+</div>
+<div class="relative h-44 w-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Enterprise level deep learning server rack in an academic computing cluster showing high density NVIDIA DGX compute nodes with fiber optic cable management, glowing blue indicator lights, brushed aluminum chassis, and cooling manifold systems inside a secure data center server aisle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUkiXS4dFB9kyp9B4QpQC7iDobhC8Q3qYrDY8SWJEaKXDidyR5iCsaV0QrkZh0KXIkEYoTjIEZmKM94YkRoBmHpwGhrubxFW5DTTv2wMe1jI6swgtFcxlK5aH9EzeBAaKTMV8XeRT6_A0g_czOejxvnFrKC6op4nwwSWjC-hXFfmYQlWaXRCNmTMM1bz0HgATpjP0FYvlCyGwGjUCfXC13aWXg4WbgE-3u14Ztquv8"/>
+<div class="absolute bottom-2 left-2 bg-surface-container-lowest/90 px-2 py-0.5 rounded text-on-surface font-label-badge text-label-badge flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">location_on</span>
+<span>Turing Lab Rack C-12</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-start justify-between gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface leading-snug">
+                    NVIDIA DGX H100 Node 4
+                  </h2>
+<span class="shrink-0 font-code-metric text-code-metric px-1.5 py-0.5 bg-surface-container-high rounded text-on-surface font-semibold">Tier 2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                  Multi-node tensor core partition dedicated to DFT simulation, molecular dynamics, and large language model pre-training.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-1.5 pt-2 bg-surface-container-low p-2 rounded">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline uppercase">Accelerators</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">8x SXM5 80GB</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline uppercase">Interconnect</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">400Gb/s InfiniBand</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5 text-secondary font-code-metric text-[12px] font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Available Now</span>
+</div>
+<span class="text-primary font-label-badge text-label-badge font-semibold group-hover:underline flex items-center">
+                  Inspect <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</span>
+</div>
+</div>
+</article>
+<!-- Card 3: Bruker Avance III HD 500 MHz NMR -->
+<article class="group cursor-pointer bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden relative" id="card-bruker-nmr" onclick="selectInstrument('bruker-nmr')">
+<div class="flex items-center justify-between px-3 pt-3 pb-2 bg-surface-container-low">
+<span class="font-code-metric text-[11px] text-outline">Department of Biochemistry</span>
+<span class="font-code-metric text-[11px] text-outline">ID: BIO-NMR-500</span>
+</div>
+<div class="relative h-44 w-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Massive metallic superconducting magnet cryostat of a 500 MHz nuclear magnetic resonance NMR spectrometer in a sunlit university chemistry laboratory, cryogenic transfer lines, pneumatic sample changer deck, safety clearance railing, and clean parquet flooring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWUu2SjSCKQIeWVtkzqTbHcH9BCnCWAR4OKoLH5KUutLELIXpE7yb313pxtSgvSiqnmixqSRONrya3SoSlXgxUe-YK1KZ29gcu_50eKfEUoZk_gYAMX6JrhsHsJ3NxiXrnEXrNi8-0Nlp9l4kM-2hH3L-IRm4JM2d_cn_4qNuWgxQT5-FL2nqexaY8HBPChSYfMEuOqEC2zSO6nSEX9pgzbcCuFmGfPVL3JU4YQwlw"/>
+<div class="absolute bottom-2 left-2 bg-surface-container-lowest/90 px-2 py-0.5 rounded text-on-surface font-label-badge text-label-badge flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">location_on</span>
+<span>BioChem Annex Rm 112</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-start justify-between gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface leading-snug">
+                    Bruker Avance III HD 500 NMR
+                  </h2>
+<span class="shrink-0 font-code-metric text-code-metric px-1.5 py-0.5 bg-surface-container-high rounded text-on-surface font-semibold">Tier 3</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                  Equipped with 5mm BBO Prodigy CryoProbe for ultra-sensitive 1H, 13C, 31P, and 19F 1D/2D structural elucidation.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-1.5 pt-2 bg-surface-container-low p-2 rounded">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline uppercase">Field Strength</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">11.74 Tesla</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline uppercase">Probe Temp</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">-40°C to +130°C</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-code-metric text-[12px]">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>Maint. Window 18:00</span>
+</div>
+<span class="text-primary font-label-badge text-label-badge font-semibold group-hover:underline flex items-center">
+                  Inspect <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</span>
+</div>
+</div>
+</article>
+<!-- Card 4: Thermo Fisher Vanquish Duo UHPLC -->
+<article class="group cursor-pointer bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden relative" id="card-vanquish-uhplc" onclick="selectInstrument('vanquish-uhplc')">
+<div class="flex items-center justify-between px-3 pt-3 pb-2 bg-surface-container-low">
+<span class="font-code-metric text-[11px] text-outline">Chemical Analytics Core</span>
+<span class="font-code-metric text-[11px] text-outline">ID: CHM-HPLC-02</span>
+</div>
+<div class="relative h-44 w-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Modular analytical ultra-high performance liquid chromatography UHPLC instrument stack with solvent reservoir bottles on top rack, automated autosampler carousel, photodiode array detector modules, neatly plumbed capillary tubing, and clean white laboratory background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Jgtvb_GhnLfSj8O4ME3tDRIrUz64MQ5n1d-8Ayt9pNVqgs7dsUEJ4im6yi0FQADz06S3xueD6M1RHEC2gnnEV9pz6HLG1IEHcsfxOE5qQciDhoaqQiiigrU7ifolH1RwS5hDhUBCCrA_VS9xqCUojzV6ndH1eWDXQdKcKghCgF8QGVv8vzvftOwaKjDoJb0BN0pnYkzxQnkyou3FqYVz438Mv_RI_agvdN4UqCUL"/>
+<div class="absolute bottom-2 left-2 bg-surface-container-lowest/90 px-2 py-0.5 rounded text-on-surface font-label-badge text-label-badge flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">location_on</span>
+<span>Separations Rm 310</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-start justify-between gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface leading-snug">
+                    Thermo Vanquish Duo UHPLC
+                  </h2>
+<span class="shrink-0 font-code-metric text-code-metric px-1.5 py-0.5 bg-surface-container-high rounded text-on-surface font-semibold">Tier 1</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                  Dual-gradient binary system with biocompatible fluidic pathways, DAD UV-Vis and split-loop injection.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-1.5 pt-2 bg-surface-container-low p-2 rounded">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline uppercase">Max Pressure</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">1500 bar (22k psi)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline uppercase">Sample Capacity</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">4x 96 Well Plates</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5 text-secondary font-code-metric text-[12px] font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Active &amp; Ready</span>
+</div>
+<span class="text-primary font-label-badge text-label-badge font-semibold group-hover:underline flex items-center">
+                  Inspect <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</span>
+</div>
+</div>
+</article>
+<!-- Card 5: KUKA Agilus KR 6 Collaborative Robotic Cell -->
+<article class="group cursor-pointer bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden relative" id="card-kuka-robot" onclick="selectInstrument('kuka-robot')">
+<div class="flex items-center justify-between px-3 pt-3 pb-2 bg-surface-container-low">
+<span class="font-code-metric text-[11px] text-outline">Autonomous Synthesis Bay</span>
+<span class="font-code-metric text-[11px] text-outline">ID: ENG-ROB-06</span>
+</div>
+<div class="relative h-44 w-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="High precision six-axis robotic arm with sleek industrial orange and white articulation, vacuum micro-pipette gripper end effector handling microfluidic biochip trays inside an interlocked safety acrylic enclosure with status LED beacon." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtHLFVf_AK088cjHRQbRLJtmzJBLTLBcgKTcq_nQCbzEMqJFmCZJ9CDmhF6XdDL6m7DbUe5RwUhMs7uTTTzDo-SasPYBJbTEeXXUsWRpnolnnXkgZ4Gxv5za37E87oI4SIqXUJim9tnqDlMtYUZsEemmXJmUg1YADbnqI4ubkW_b2RmUb0W5bbKwLU7iAhd3VUBjYWEyaNhjsTKd2WJY6M2NfAvEYq5OeQxh2m5zOy"/>
+<div class="absolute bottom-2 left-2 bg-surface-container-lowest/90 px-2 py-0.5 rounded text-on-surface font-label-badge text-label-badge flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">location_on</span>
+<span>Robotics Workshop Bay 2</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-start justify-between gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface leading-snug">
+                    KUKA Agilus KR 6 Robotic Cell
+                  </h2>
+<span class="shrink-0 font-code-metric text-code-metric px-1.5 py-0.5 bg-surface-container-high rounded text-on-surface font-semibold">Tier 2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                  6-axis high-speed micro-pipetting, wafer transfer, and combinatorial solid-state crystal dispensing automation.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-1.5 pt-2 bg-surface-container-low p-2 rounded">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline uppercase">Repeatability</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">±0.03 mm</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline uppercase">Payload Limit</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">6.0 kg</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5 text-secondary font-code-metric text-[12px] font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Available Now</span>
+</div>
+<span class="text-primary font-label-badge text-label-badge font-semibold group-hover:underline flex items-center">
+                  Inspect <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</span>
+</div>
+</div>
+</article>
+<!-- Card 6: Leica SP8 Confocal Laser Scanning Microscope -->
+<article class="group cursor-pointer bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden relative" id="card-leica-sp8" onclick="selectInstrument('leica-sp8')">
+<div class="flex items-center justify-between px-3 pt-3 pb-2 bg-surface-container-low">
+<span class="font-code-metric text-[11px] text-outline">Light Microscopy Hub</span>
+<span class="font-code-metric text-[11px] text-outline">ID: BIO-MIC-08</span>
+</div>
+<div class="relative h-44 w-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Inverted confocal laser scanning research microscope setup Leica SP8 with multiple gas and diode lasers, temperature controlled stage incubation box, vibration isolation optical breadboard table, and darkened optics room ambiance with laser safety indicator." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhXMu3j5RD85OR8BdrEj_kYzW8HkdByHitcWIYb4pTJx3gu2uHRiwVaQY9FzkSyd4aL63KhoVPHfkmivVNze5fNz8aYJkuxt750Yckx3wQu-G5BQfZfPGySjeASoorFgAVx32RVzdAU9788L-CYr_wzC1C1VcYOxZPwyF3wGY2iUwLlheEpsYsV2uGRUdtQrt6vENnyZHHNZUyL7ihSB8O3AjH3e9nk1uk5XpHAVgF"/>
+<div class="absolute bottom-2 left-2 bg-surface-container-lowest/90 px-2 py-0.5 rounded text-on-surface font-label-badge text-label-badge flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">location_on</span>
+<span>Microscopy Rm 105</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-start justify-between gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface leading-snug">
+                    Leica TCS SP8 Confocal
+                  </h2>
+<span class="shrink-0 font-code-metric text-code-metric px-1.5 py-0.5 bg-surface-container-high rounded text-on-surface font-semibold">Tier 3</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                  White Light Laser (WLL) 470-670nm continuous tunability, HyD hybrid detection, and resonance resonant scanner (8kHz).
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-1.5 pt-2 bg-surface-container-low p-2 rounded">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline uppercase">Live Cell Incubation</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">CO2 / 37.0°C</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-outline uppercase">Frame Rate</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">28 fps @ 512x512</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-code-metric text-[12px]">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>Booked Until 17:30</span>
+</div>
+<span class="text-primary font-label-badge text-label-badge font-semibold group-hover:underline flex items-center">
+                  Inspect <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Right Column: Detail & Quick Action Spec Sheet Inspector (5 Cols) -->
+<section class="col-span-12 xl:col-span-5 flex flex-col gap-space-md sticky top-20">
+<!-- Inspector Card Wrapper -->
+<div class="bg-surface-container-lowest rounded shadow-md overflow-hidden flex flex-col">
+<!-- Top Header Strip & Breadcrumb -->
+<div class="p-space-md bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-primary rounded-full"></span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface font-bold tracking-wider">
+                Technical Specification Dossier
+              </span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-container font-label-badge text-label-badge font-semibold">
+                Calibrated 03-Oct-2024
+              </span>
+<button class="p-1 text-outline hover:text-on-surface rounded hover:bg-surface-container-high transition-colors" title="Print SOP Dossier">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</div>
+</div>
+<!-- Instrument Title & Hero Meta -->
+<div class="p-space-lg pb-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div>
+<span class="font-label-caps text-label-caps text-primary font-bold uppercase tracking-widest">
+                  Materials Science / Electron Optics Core
+                </span>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-0.5">
+                  JEOL JSM-7800F FE-SEM
+                </h3>
+<div class="flex items-center gap-space-sm mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">room</span>
+                    Cavendish Laboratory, Room 204
+                  </span>
+<span>•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">badge</span>
+                    Tier 3 Certified (Authorized)
+                  </span>
+</div>
+</div>
+<div class="w-12 h-12 bg-primary/10 rounded flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[28px]">biotech</span>
+</div>
+</div>
+<!-- AI Real-time Scheduler Optimization Callout -->
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded relative overflow-hidden flex flex-col gap-1">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="flex items-center justify-between pl-2">
+<div class="flex items-center gap-1 font-label-badge text-label-badge font-semibold text-tertiary">
+<span class="material-symbols-outlined text-[16px]">psychology</span>
+<span>AI Schedule Arbitrage</span>
+</div>
+<span class="font-code-metric text-[11px] text-outline font-semibold">Confidence 98.4%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-2">
+                Reason: Immediate alignment with sample prep cycle. Next non-conflicting 3-hour window opens at <strong class="text-on-surface font-semibold font-code-metric">14:00 - 17:00 Today</strong> with zero vacuum cycling delay.
+              </p>
+</div>
+</div>
+<!-- Tabbed Technical Specification Roster -->
+<div class="px-space-lg flex flex-col gap-space-md">
+<!-- Section 1: Hardware Specifications Table -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<h4 class="font-headline-sm text-headline-sm font-semibold text-on-surface">
+                  Hardware Specifications &amp; Detectors
+                </h4>
+<span class="font-code-metric text-[11px] text-outline uppercase font-semibold">ISO-17025 Calibrated</span>
+</div>
+<div class="bg-surface rounded overflow-hidden shadow-sm">
+<div class="grid grid-cols-2 p-2.5 bg-surface-container-low font-label-caps text-label-caps text-outline uppercase">
+<span>Parameter / Subsystem</span>
+<span>Verified Operational Metric</span>
+</div>
+<div class="divide-y divide-surface-container-high font-body-sm text-body-sm">
+<div class="grid grid-cols-2 p-2.5 hover:bg-surface-container-low/50">
+<span class="text-on-surface-variant font-medium">Electron Emitter Type</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">Thermal Schottky FEG</span>
+</div>
+<div class="grid grid-cols-2 p-2.5 hover:bg-surface-container-low/50">
+<span class="text-on-surface-variant font-medium">Maximum Resolution</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">0.8 nm @ 15 kV | 1.2 nm @ 1 kV</span>
+</div>
+<div class="grid grid-cols-2 p-2.5 hover:bg-surface-container-low/50">
+<span class="text-on-surface-variant font-medium">Stage Freedom / Range</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">5-Axis: X=70mm, Y=50mm, T=-5 to +70°</span>
+</div>
+<div class="grid grid-cols-2 p-2.5 hover:bg-surface-container-low/50">
+<span class="text-on-surface-variant font-medium">EDS Detector</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">Oxford Ultim Max 100mm² SDD</span>
+</div>
+<div class="grid grid-cols-2 p-2.5 hover:bg-surface-container-low/50">
+<span class="text-on-surface-variant font-medium">Chamber High Vacuum</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">4.2 × 10⁻⁵ Pa (Turbo Molecular)</span>
+</div>
+<div class="grid grid-cols-2 p-2.5 hover:bg-surface-container-low/50">
+<span class="text-on-surface-variant font-medium">Beam Deceleration (BD)</span>
+<span class="font-code-metric text-code-metric text-on-surface font-bold">GentleBeam (GB) up to -5 kV bias</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Prerequisites, Certifications & Safety -->
+<div>
+<h4 class="font-headline-sm text-headline-sm font-semibold text-on-surface mb-2">
+                Mandatory Operator Credentials
+              </h4>
+<div class="flex flex-col gap-1.5">
+<div class="p-2.5 rounded bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Laser &amp; High Voltage Safety Induction (HV-202)</span>
+</div>
+<span class="font-code-metric text-[11px] text-secondary font-bold">VALID (Exp 2026)</span>
+</div>
+<div class="p-2.5 rounded bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">FE-SEM Hands-on Practicum 10-Hr Signoff</span>
+</div>
+<span class="font-code-metric text-[11px] text-secondary font-bold">VERIFIED PI SIGNED</span>
+</div>
+<div class="p-2.5 rounded bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-error">info</span>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">EDS Oxford Aztec Quantitative Spectrum Add-on</span>
+</div>
+<span class="font-code-metric text-[11px] text-primary font-semibold hover:underline cursor-pointer">Take Quiz (15m)</span>
+</div>
+</div>
+</div>
+<!-- Section 3: Cost Structure & Internal Billing Rates -->
+<div class="bg-surface-container p-space-md rounded">
+<h4 class="font-label-caps text-label-caps text-outline uppercase font-bold mb-2">
+                Core Billing Structure (FY 2024-25)
+              </h4>
+<div class="grid grid-cols-2 gap-space-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Grant Internal (Direct Charge)</span>
+<span class="font-code-metric text-headline-sm font-bold text-on-surface mt-0.5">£38.50 <span class="text-body-sm font-normal text-outline">/ hour</span></span>
+<span class="font-label-caps text-[10px] text-secondary">Automatic grant code deduction</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Commercial / External User</span>
+<span class="font-code-metric text-headline-sm font-bold text-on-surface mt-0.5">£145.00 <span class="text-body-sm font-normal text-outline">/ hour</span></span>
+<span class="font-label-caps text-[10px] text-outline">Facility operator staffed</span>
+</div>
+</div>
+</div>
+<!-- Custodian & Laboratory Contact -->
+<div class="flex items-center justify-between p-2.5 bg-surface rounded shadow-sm">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-[12px]">
+                  DR
+                </div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">Dr. Ronald Sinclair</span>
+<span class="font-label-caps text-[10px] text-outline uppercase">Facility Director • Electron Microscopy</span>
+</div>
+</div>
+<button class="px-2.5 py-1 bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-badge text-label-badge transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+<span>Direct Message</span>
+</button>
+</div>
+</div>
+<!-- Bottom Pinned Action Tray -->
+<div class="p-space-lg pt-space-md bg-surface-container-lowest mt-space-md flex flex-col gap-2">
+<button class="w-full py-2.5 px-space-md bg-primary hover:bg-primary-container text-on-primary font-label-badge text-label-badge rounded font-semibold tracking-wide flex items-center justify-center gap-2 transition-colors shadow-sm" onclick="triggerBookingModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+<span>Request Project Access Booking (14:00 Today)</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-space-sm bg-surface-container-low hover:bg-surface-container text-on-surface font-label-badge text-label-badge rounded font-medium flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">event_note</span>
+<span>Full Weekly Schedule</span>
+</button>
+<button class="py-2 px-space-sm bg-surface-container-low hover:bg-surface-container text-on-surface font-label-badge text-label-badge rounded font-medium flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Download SOP (PDF)</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Interactive JavaScript for Live Instrument Selection & Feedback -->
+<script>
+    function selectInstrument(instrumentKey) {
+      // Clear all active selection ring states on catalog cards
+      const allCards = document.querySelectorAll('#catalog-card-container > article');
+      allCards.forEach(c => {
+        c.classList.remove('ring-2', 'ring-primary');
+      });
+
+      // Highlight selected instrument card
+      const targetCard = document.getElementById('card-' + instrumentKey);
+      if (targetCard) {
+        targetCard.classList.add('ring-2', 'ring-primary');
+      }
+
+      // In a full client SPA, update the right inspection dossier reactive states.
+    }
+
+    function triggerBookingModal() {
+      alert("Booking Request Initiated:\n• Instrument: JEOL JSM-7800F FE-SEM\n• Default Window: 14:00 - 17:00 Today\n• Project Grant: EPSRC-EP/V02844\n• Automated Safety Certification: Verified");
+    }
+
+    // Keyboard shortcut handler for Cmd+K search focus
+    window.addEventListener('keydown', function(e) {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        const searchInput = document.getElementById('instrument-search');
+        if (searchInput) {
+          searchInput.focus();
+          searchInput.select();
+        }
+      }
+    });
+  </script>
+</div></main></div></body></html>

@@ -1,0 +1,46 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/cache
+
+# Testing
+/coverage
+
+# Next.js Build Outputs
+/.next/
+/out/
+/build
+/dist
+
+# Environment variables & credentials
+.env*
+!.env.example
+*.pem
+service-account*.json
+*.key
+
+# Stitch raw image quarantine (< 10 MB Git repo compliance)
+# Preserved permanently locally, excluded from git tracking
+design/stitch/screens/*.png
+design/stitch/assets/*.png
+
+# Explicitly track semantic HTML, design tokens, and manifest
+!design/stitch/screens/*.html
+!design/stitch/design-tokens/*
+!design/stitch/manifest.json
+!design/stitch/generate_manifest.py
+
+# Debug & logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
+next-env.d.ts

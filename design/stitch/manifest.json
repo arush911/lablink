@@ -1,0 +1,312 @@
+{
+  "stitch_project_id": "15502302728869515424",
+  "stitch_project_name": "projects/15502302728869515424",
+  "title": "LabLink Campus Resource Platform",
+  "design_system": "Academic Precision",
+  "export_timestamp": "2026-11-23T13:40:20Z",
+  "screens": [
+    {
+      "screen_index": "01",
+      "name": "01_student_laboratory_dashboard",
+      "title": "Student Laboratory Dashboard",
+      "screen_id": "861f410a28464f00bc4da9bad4ec3117",
+      "device_type": "DESKTOP",
+      "resolution": "2560x3802",
+      "export_status": "SUCCESS",
+      "export_format": [
+        "HTML_TAILWIND",
+        "PNG_SCREENSHOT"
+      ],
+      "html_path": "design/stitch/screens/01_student_laboratory_dashboard.html",
+      "html_bytes": 46453,
+      "screenshot_path": "design/stitch/screens/01_student_laboratory_dashboard.png",
+      "screenshot_bytes": 1326320,
+      "asset_references_count": 3,
+      "external_asset_urls": [
+        "https://cdn.tailwindcss.com",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBKr3AcBzNzRP8m9tOaBaYb5ivnVTNIS92RHB2dVb0XfeCJqmFElKVCsAtVZ8uoHOCtmHLZrd_FFy_TnuUuKOKvxT5g-JavByKTs7FeASt60DNyKBDskf0EMFALHA9mCruCmlEcLcdYeTUxN1SxKH0qjXCE-Xb-2JORrEnqJVEmy8aQxW5-lPnl1GsT7A5O2qUyvifcWd8LNld0tQajAd0H5x_Q-vbKFLSovWWSeY40",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuCN0Sf1GQ1PJrrd4obzbny1gTM1ibOrC5skSXR8E75vEFgbKtRLjL3lO8F7iHEmtbWxM_JK_yY3XCRPNIweI4OjBQU3cCjbN2sViLtBPMT8a7VcAvxW0kmRrrV5hjCSrQ3e3Fp_-mcJJ3RzaA6ELPif-uFeHcUJjLNZ07Xjmd-qDwzxVbYYdLnT6oBeUxZucVITcMGBqau-rcYgYX31JPoWx_u6tLEZisiB6jZPYspN"
+      ]
+    },
+    {
+      "screen_index": "02",
+      "name": "02_equipment_discovery_and_specifications",
+      "title": "Equipment Discovery & Specifications Catalog",
+      "screen_id": "ea2aae7ce6354a89be96702002efbe1f",
+      "device_type": "DESKTOP",
+      "resolution": "2560x3788",
+      "export_status": "SUCCESS",
+      "export_format": [
+        "HTML_TAILWIND",
+        "PNG_SCREENSHOT"
+      ],
+      "html_path": "design/stitch/screens/02_equipment_discovery_and_specifications.html",
+      "html_bytes": 50881,
+      "screenshot_path": "design/stitch/screens/02_equipment_discovery_and_specifications.png",
+      "screenshot_bytes": 2706541,
+      "asset_references_count": 7,
+      "external_asset_urls": [
+        "https://cdn.tailwindcss.com",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBdVINy22aT-uiBoo2ck3KftAHY5mwV58sAIs5Fx2swq18-I4Snh8GEw4FUVjVTWDOGfjOQ1NTBRDzEwFcLU-MROFqByVUqSvzE2VZYDRYDX-wK3Ot5FVsc9uwVo5rxcuxPcOC4vccrmpvdXTu5BaOCZGYJXL8evTSOS7W6hpHZCJjOLdu9-5Ztu8rpTTmja9cLJsjlxRr2fc1HfBm08ImGJ3QbEJZbBS96Q6x7If5K",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuB6Jgtvb_GhnLfSj8O4ME3tDRIrUz64MQ5n1d-8Ayt9pNVqgs7dsUEJ4im6yi0FQADz06S3xueD6M1RHEC2gnnEV9pz6HLG1IEHcsfxOE5qQciDhoaqQiiigrU7ifolH1RwS5hDhUBCCrA_VS9xqCUojzV6ndH1eWDXQdKcKghCgF8QGVv8vzvftOwaKjDoJb0BN0pnYkzxQnkyou3FqYVz438Mv_RI_agvdN4UqCUL",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBUkiXS4dFB9kyp9B4QpQC7iDobhC8Q3qYrDY8SWJEaKXDidyR5iCsaV0QrkZh0KXIkEYoTjIEZmKM94YkRoBmHpwGhrubxFW5DTTv2wMe1jI6swgtFcxlK5aH9EzeBAaKTMV8XeRT6_A0g_czOejxvnFrKC6op4nwwSWjC-hXFfmYQlWaXRCNmTMM1bz0HgATpjP0FYvlCyGwGjUCfXC13aWXg4WbgE-3u14Ztquv8",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBhXMu3j5RD85OR8BdrEj_kYzW8HkdByHitcWIYb4pTJx3gu2uHRiwVaQY9FzkSyd4aL63KhoVPHfkmivVNze5fNz8aYJkuxt750Yckx3wQu-G5BQfZfPGySjeASoorFgAVx32RVzdAU9788L-CYr_wzC1C1VcYOxZPwyF3wGY2iUwLlheEpsYsV2uGRUdtQrt6vENnyZHHNZUyL7ihSB8O3AjH3e9nk1uk5XpHAVgF",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBWUu2SjSCKQIeWVtkzqTbHcH9BCnCWAR4OKoLH5KUutLELIXpE7yb313pxtSgvSiqnmixqSRONrya3SoSlXgxUe-YK1KZ29gcu_50eKfEUoZk_gYAMX6JrhsHsJ3NxiXrnEXrNi8-0Nlp9l4kM-2hH3L-IRm4JM2d_cn_4qNuWgxQT5-FL2nqexaY8HBPChSYfMEuOqEC2zSO6nSEX9pgzbcCuFmGfPVL3JU4YQwlw",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDtHLFVf_AK088cjHRQbRLJtmzJBLTLBcgKTcq_nQCbzEMqJFmCZJ9CDmhF6XdDL6m7DbUe5RwUhMs7uTTTzDo-SasPYBJbTEeXXUsWRpnolnnXkgZ4Gxv5za37E87oI4SIqXUJim9tnqDlMtYUZsEemmXJmUg1YADbnqI4ubkW_b2RmUb0W5bbKwLU7iAhd3VUBjYWEyaNhjsTKd2WJY6M2NfAvEYq5OeQxh2m5zOy"
+      ]
+    },
+    {
+      "screen_index": "03",
+      "name": "03_faculty_laboratory_management",
+      "title": "Faculty Laboratory Management Dashboard",
+      "screen_id": "86b5609f50c34e79b9104edc2ff64e2e",
+      "device_type": "DESKTOP",
+      "resolution": "2560x3386",
+      "export_status": "SUCCESS",
+      "export_format": [
+        "HTML_TAILWIND",
+        "PNG_SCREENSHOT"
+      ],
+      "html_path": "design/stitch/screens/03_faculty_laboratory_management.html",
+      "html_bytes": 41690,
+      "screenshot_path": "design/stitch/screens/03_faculty_laboratory_management.png",
+      "screenshot_bytes": 948742,
+      "asset_references_count": 1,
+      "external_asset_urls": [
+        "https://cdn.tailwindcss.com"
+      ]
+    },
+    {
+      "screen_index": "04",
+      "name": "04_intelligent_scheduling_and_conflict_resolution",
+      "title": "Intelligent Scheduling & Conflict Resolution Engine",
+      "screen_id": "a3e879db267a4331b665ce7e5dd21a02",
+      "device_type": "DESKTOP",
+      "resolution": "2560x3194",
+      "export_status": "SUCCESS",
+      "export_format": [
+        "HTML_TAILWIND",
+        "PNG_SCREENSHOT"
+      ],
+      "html_path": "design/stitch/screens/04_intelligent_scheduling_and_conflict_resolution.html",
+      "html_bytes": 36809,
+      "screenshot_path": "design/stitch/screens/04_intelligent_scheduling_and_conflict_resolution.png",
+      "screenshot_bytes": 903570,
+      "asset_references_count": 1,
+      "external_asset_urls": [
+        "https://cdn.tailwindcss.com"
+      ]
+    },
+    {
+      "screen_index": "05",
+      "name": "05_student_project_access_request",
+      "title": "Student Project Access Request",
+      "screen_id": "275492e56d78477e90ebc7e99eb01cfe",
+      "device_type": "DESKTOP",
+      "resolution": "2560x4816",
+      "export_status": "SUCCESS",
+      "export_format": [
+        "HTML_TAILWIND",
+        "PNG_SCREENSHOT"
+      ],
+      "html_path": "design/stitch/screens/05_student_project_access_request.html",
+      "html_bytes": 41806,
+      "screenshot_path": "design/stitch/screens/05_student_project_access_request.png",
+      "screenshot_bytes": 1083748,
+      "asset_references_count": 1,
+      "external_asset_urls": [
+        "https://cdn.tailwindcss.com"
+      ]
+    },
+    {
+      "screen_index": "06",
+      "name": "06_faculty_request_review",
+      "title": "Faculty Request Review",
+      "screen_id": "d878408e8d89426da415003d87e7e211",
+      "device_type": "DESKTOP",
+      "resolution": "2560x3624",
+      "export_status": "SUCCESS",
+      "export_format": [
+        "HTML_TAILWIND",
+        "PNG_SCREENSHOT"
+      ],
+      "html_path": "design/stitch/screens/06_faculty_request_review.html",
+      "html_bytes": 44829,
+      "screenshot_path": "design/stitch/screens/06_faculty_request_review.png",
+      "screenshot_bytes": 1092359,
+      "asset_references_count": 1,
+      "external_asset_urls": [
+        "https://cdn.tailwindcss.com"
+      ]
+    },
+    {
+      "screen_index": "07",
+      "name": "07_weekly_laboratory_scheduling_calendar",
+      "title": "Weekly Laboratory Scheduling Calendar",
+      "screen_id": "5206f85945a548f4afd9c4fab109209f",
+      "device_type": "DESKTOP",
+      "resolution": "2560x4562",
+      "export_status": "SUCCESS",
+      "export_format": [
+        "HTML_TAILWIND",
+        "PNG_SCREENSHOT"
+      ],
+      "html_path": "design/stitch/screens/07_weekly_laboratory_scheduling_calendar.html",
+      "html_bytes": 58798,
+      "screenshot_path": "design/stitch/screens/07_weekly_laboratory_scheduling_calendar.png",
+      "screenshot_bytes": 1202637,
+      "asset_references_count": 1,
+      "external_asset_urls": [
+        "https://cdn.tailwindcss.com"
+      ]
+    },
+    {
+      "screen_index": "08",
+      "name": "08_student_request_tracking",
+      "title": "Student Request Tracking",
+      "screen_id": "b1cf784dbf854c4298f6c8eadf1f9d0c",
+      "device_type": "DESKTOP",
+      "resolution": "2560x4602",
+      "export_status": "SUCCESS",
+      "export_format": [
+        "HTML_TAILWIND",
+        "PNG_SCREENSHOT"
+      ],
+      "html_path": "design/stitch/screens/08_student_request_tracking.html",
+      "html_bytes": 46720,
+      "screenshot_path": "design/stitch/screens/08_student_request_tracking.png",
+      "screenshot_bytes": 1135731,
+      "asset_references_count": 1,
+      "external_asset_urls": [
+        "https://cdn.tailwindcss.com"
+      ]
+    },
+    {
+      "screen_index": "09",
+      "name": "09_scheduling_recommendation_details",
+      "title": "Scheduling Recommendation Details",
+      "screen_id": "d94c3396a7564e50a7fea23c6d8d683b",
+      "device_type": "DESKTOP",
+      "resolution": "2560x3548",
+      "export_status": "SUCCESS",
+      "export_format": [
+        "HTML_TAILWIND",
+        "PNG_SCREENSHOT"
+      ],
+      "html_path": "design/stitch/screens/09_scheduling_recommendation_details.html",
+      "html_bytes": 48113,
+      "screenshot_path": "design/stitch/screens/09_scheduling_recommendation_details.png",
+      "screenshot_bytes": 1213460,
+      "asset_references_count": 1,
+      "external_asset_urls": [
+        "https://cdn.tailwindcss.com"
+      ]
+    },
+    {
+      "screen_index": "10",
+      "name": "10_student_laboratory_dashboard_mobile",
+      "title": "Student Laboratory Dashboard (Mobile)",
+      "screen_id": "54f02155c5394fd6881f894a27c25089",
+      "device_type": "MOBILE",
+      "resolution": "780x4996",
+      "export_status": "SUCCESS",
+      "export_format": [
+        "HTML_TAILWIND",
+        "PNG_SCREENSHOT"
+      ],
+      "html_path": "design/stitch/screens/10_student_laboratory_dashboard_mobile.html",
+      "html_bytes": 34722,
+      "screenshot_path": "design/stitch/screens/10_student_laboratory_dashboard_mobile.png",
+      "screenshot_bytes": 642920,
+      "asset_references_count": 7,
+      "external_asset_urls": [
+        "https://cdn.tailwindcss.com",
+        "https://lh3.googleusercontent.com/aida/ALJJyrACR6dqnVa_DxGRvLd1smgyC5mH4zNiIa54NXxWBNs_Fz1Z33OyORovG4F2pyfczWF6mZRSork24Jqr240FICyeSZ86FmOo_I88Bie279Y5GCEo2jY-Y1TG9wYrmFBHXEqlYMDvqMFiTI2Dge7pFNM2mBIRTSGa9v23lFRI4Nkrk461Wbp7yplK7emxD5SDuuMV5W_A_D57lIXToVf-dPCaWqUDEBKqa5YF8cWu695-xA",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAOExPvi0uKcUw85kBZ1VrcjyaV1Y0tn81tmjpYhq0e8oXzf0i4_gdACQr8u8DQtkspXttD42AJ_fLmHEsVndfTVtHGi5JElDX_FO6CjMKExPcL1WOJkTZMCTq9-KuuH1fgZQp0o1GLdVMPDgucxKofCRI53LznWLnqnTS5X3fSTOQBYcE2DeTX3kIXSKu23Fv7SaDZ6zH2IS9JhauyQDT2G8h4d6HQaUEwMgAYIpmG",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuCQej0IC21N_nrIQKJNXnzKOALRJ00NGhrKahUwW1pHg6-O49PFabc8gkDjq4NIb0lMNl5n08Fa0q5U7iBIyfEhvJWSzC4M88eyI0gPzLAY9umkQ7GlYF4GkBUgVHnNgBRSKvybPeLa1ZVNf0y_o2uyRSic1N6d9pYEe2xtfKxaiofkeuKsv3MQRzbijjMufMP44vkQQP_MiYWGKtnsyPlPa1jk3XMbOdXA7rRgZTM5",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBSG5Ct5zHvGNQ4o1cGwjbaf6_Yf7HsVrtsKnY7cLoSA1zUzcAEd-UbU5J9c_fFRs0zd-in9UVovQw7PzsAx6maz59pRu4WCVFubYbwEMBPrfakrv-7dGG0snlfYEweu6S-YsktZizIfG3XLOqod_zHub3TIHmEAO4_mNiZ4RuwT9-ggROTjnCv2zBDZMpGiDoPpZE5W1EvmqSr5tfq2MgKx6Y451x6_dk4bJwnGb1T",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAWZyP1cGxnFbiwHTSsv7cdwBDG3t8WYIu3r3_pxBPaf1W5xKyFhGTK3MI5PlG4InNl29OJFE-uyCzC9H03Og6lVhaqVheGRovMl3CT4LY6qk0H1cqypzqyjdzcX2EtP9CDJBI4NM23yIF-y0lCpOnBY-sdVjK9nrQEY7NM9IRFSvpdofGVze1fidMWcnmSzg21Jem2ctvBbqIRDzDSig20rnw6R20fQh9D0m360TM5",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDi9cthJUOzovHJ4VXHWBw5T3J_vF5GZrdE3pTqe59XB604s7U3-1WL95Q5eQoh-7Ed2c3ukwav6K71C5Eu5FHmbPBMuc4gXMcw5MlA0V4p8W8siTLkBE9snIdiXC6vojCjPjtk7Rpv64EI7VwNJdr09-bEAczcDlYOCPBQLpL1W9YCJBw_ltDu3MzjM2vxs0Ct0CZiJhSUdYog84cb2BQK13LyCeOSZJ89AUUqp3eD"
+      ]
+    },
+    {
+      "screen_index": "11",
+      "name": "11_equipment_discovery_and_availability_mobile",
+      "title": "Equipment Discovery & Availability (Mobile)",
+      "screen_id": "c7b69f0899fc4b288974d31a399a2c99",
+      "device_type": "MOBILE",
+      "resolution": "780x4422",
+      "export_status": "SUCCESS",
+      "export_format": [
+        "HTML_TAILWIND",
+        "PNG_SCREENSHOT"
+      ],
+      "html_path": "design/stitch/screens/11_equipment_discovery_and_availability_mobile.html",
+      "html_bytes": 35150,
+      "screenshot_path": "design/stitch/screens/11_equipment_discovery_and_availability_mobile.png",
+      "screenshot_bytes": 1401411,
+      "asset_references_count": 6,
+      "external_asset_urls": [
+        "https://cdn.tailwindcss.com",
+        "https://lh3.googleusercontent.com/aida/ALJJyrACR6dqnVa_DxGRvLd1smgyC5mH4zNiIa54NXxWBNs_Fz1Z33OyORovG4F2pyfczWF6mZRSork24Jqr240FICyeSZ86FmOo_I88Bie279Y5GCEo2jY-Y1TG9wYrmFBHXEqlYMDvqMFiTI2Dge7pFNM2mBIRTSGa9v23lFRI4Nkrk461Wbp7yplK7emxD5SDuuMV5W_A_D57lIXToVf-dPCaWqUDEBKqa5YF8cWu695-xA",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuCftbW_RjqLSoTZ3LqDqNo3kY1x3i0hzehiGoOLNdzNEblIniM2dHaadHsCI8zVDMb4cuyiU9ZB5jkM4NeDm4rpRPYGSf5d2rkZxFlMi8k9I_qUqzke3OmcLzBO6Dh7ZzYvaMpCt2g0kEke7g_mi-ye3rLVq0n8bPQM_D669FtPl83Sckj9nlnHDbpphaMjsyH6Se7FSe7V0iWwZoxWSxD1KjI3BHkWtKZFlnPQr95R",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBlFx8aoNpouzHINs2Q9UiLJKMgAh9ybd_Vb3FHfAlpPknnrKYgaZ9djFxWRVALXuNWn0n58K4NZlZmtyx3iTN8JUFXQ9bRFE0Vkz1RVdMv1eR_dm9N2FcXS_VQmDjLLGI5B8p5oB3cTuSxgUxwFPBWv-QECGA3LrV5jfeIZgJIJyem2szSAVRAHqAcg5KEErhVtqgGCZ_KHjDOUCicvaXnBu0-HBJp5cntzi4MCi_6",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAWZyP1cGxnFbiwHTSsv7cdwBDG3t8WYIu3r3_pxBPaf1W5xKyFhGTK3MI5PlG4InNl29OJFE-uyCzC9H03Og6lVhaqVheGRovMl3CT4LY6qk0H1cqypzqyjdzcX2EtP9CDJBI4NM23yIF-y0lCpOnBY-sdVjK9nrQEY7NM9IRFSvpdofGVze1fidMWcnmSzg21Jem2ctvBbqIRDzDSig20rnw6R20fQh9D0m360TM5",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuARR5frk9I51Gc8yMSmrdLPSYpJSSaK8eE_W7ft6kuGqDWKcCcBv2Yr_Pb6mWlpg176KO0t8aRpTI8BGZH3Y1Lj5k4fdtdBQ9LOeqhh5l9i5ULqBm3cK35GH3kAuqM9ytPrSxlA08ZfRxCohCkMUQ7EiSTuxGsX-gDvbzyFHXFBFuI3az78QjgZnng7rbJPSP_58aZ6tps7Bhsu20SO1RNG8jnB7w6GedBHQytyyNaW"
+      ]
+    },
+    {
+      "screen_index": "12",
+      "name": "12_faculty_approvals_and_conflict_resolution_mobile",
+      "title": "Faculty Approvals & Conflict Resolution (Mobile)",
+      "screen_id": "6a3b4c6396334631ac785067a15c5788",
+      "device_type": "MOBILE",
+      "resolution": "780x3766",
+      "export_status": "SUCCESS",
+      "export_format": [
+        "HTML_TAILWIND",
+        "PNG_SCREENSHOT"
+      ],
+      "html_path": "design/stitch/screens/12_faculty_approvals_and_conflict_resolution_mobile.html",
+      "html_bytes": 24634,
+      "screenshot_path": "design/stitch/screens/12_faculty_approvals_and_conflict_resolution_mobile.png",
+      "screenshot_bytes": 409094,
+      "asset_references_count": 3,
+      "external_asset_urls": [
+        "https://cdn.tailwindcss.com",
+        "https://lh3.googleusercontent.com/aida/ALJJyrACR6dqnVa_DxGRvLd1smgyC5mH4zNiIa54NXxWBNs_Fz1Z33OyORovG4F2pyfczWF6mZRSork24Jqr240FICyeSZ86FmOo_I88Bie279Y5GCEo2jY-Y1TG9wYrmFBHXEqlYMDvqMFiTI2Dge7pFNM2mBIRTSGa9v23lFRI4Nkrk461Wbp7yplK7emxD5SDuuMV5W_A_D57lIXToVf-dPCaWqUDEBKqa5YF8cWu695-xA",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAWZyP1cGxnFbiwHTSsv7cdwBDG3t8WYIu3r3_pxBPaf1W5xKyFhGTK3MI5PlG4InNl29OJFE-uyCzC9H03Og6lVhaqVheGRovMl3CT4LY6qk0H1cqypzqyjdzcX2EtP9CDJBI4NM23yIF-y0lCpOnBY-sdVjK9nrQEY7NM9IRFSvpdofGVze1fidMWcnmSzg21Jem2ctvBbqIRDzDSig20rnw6R20fQh9D0m360TM5"
+      ]
+    },
+    {
+      "screen_index": "13",
+      "name": "13_project_access_request_and_scheduling_mobile",
+      "title": "Project Access Request & Scheduling (Mobile)",
+      "screen_id": "08df62edd69542b6909ec312c4f503a4",
+      "device_type": "MOBILE",
+      "resolution": "780x3218",
+      "export_status": "SUCCESS",
+      "export_format": [
+        "HTML_TAILWIND",
+        "PNG_SCREENSHOT"
+      ],
+      "html_path": "design/stitch/screens/13_project_access_request_and_scheduling_mobile.html",
+      "html_bytes": 21927,
+      "screenshot_path": "design/stitch/screens/13_project_access_request_and_scheduling_mobile.png",
+      "screenshot_bytes": 387360,
+      "asset_references_count": 4,
+      "external_asset_urls": [
+        "https://cdn.tailwindcss.com",
+        "https://lh3.googleusercontent.com/aida/ALJJyrACR6dqnVa_DxGRvLd1smgyC5mH4zNiIa54NXxWBNs_Fz1Z33OyORovG4F2pyfczWF6mZRSork24Jqr240FICyeSZ86FmOo_I88Bie279Y5GCEo2jY-Y1TG9wYrmFBHXEqlYMDvqMFiTI2Dge7pFNM2mBIRTSGa9v23lFRI4Nkrk461Wbp7yplK7emxD5SDuuMV5W_A_D57lIXToVf-dPCaWqUDEBKqa5YF8cWu695-xA",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBK-Z223xIQ_sXVk3AjYyPnYkTRn_qOLACKMPNTsJAekcnvhfCnlIur3umUO4lhyRf1zhb1KCnqpT-j6rGTtkBPPOlN4ZjSU3fEc-ZNoCpf6_8lefWv4S5fSPBw5ojkg7vZ_Mtago2C5HzlcaablEZ_eDiWcKkaK4eY1j5XWiWgBS5XGbbtO3qggezTCY9yKATuGxYkpgprs0qf0_zKfoh8nt-oQYr0EF1ydbs6YYyY",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAWZyP1cGxnFbiwHTSsv7cdwBDG3t8WYIu3r3_pxBPaf1W5xKyFhGTK3MI5PlG4InNl29OJFE-uyCzC9H03Og6lVhaqVheGRovMl3CT4LY6qk0H1cqypzqyjdzcX2EtP9CDJBI4NM23yIF-y0lCpOnBY-sdVjK9nrQEY7NM9IRFSvpdofGVze1fidMWcnmSzg21Jem2ctvBbqIRDzDSig20rnw6R20fQh9D0m360TM5"
+      ]
+    }
+  ],
+  "design_tokens": {
+    "markdown_path": "design/stitch/design-tokens/design-system.md",
+    "json_path": "design/stitch/design-tokens/theme-tokens.json",
+    "status": "EXPORTED_AND_VERIFIED"
+  },
+  "missing_design_materials": []
+}

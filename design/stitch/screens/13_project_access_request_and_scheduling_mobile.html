@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-background": "#131b2e", "inverse-surface": "#283044", "outline": "#747686", "tertiary-fixed-dim": "#c3c0ff", "inverse-primary": "#b7c4ff", "secondary": "#006a61", "on-primary": "#ffffff", "on-primary-container": "#cad3ff", "primary-container": "#1d4ed8", "on-surface-variant": "#434655", "surface-tint": "#2151da", "on-tertiary-container": "#d3d1ff", "primary": "#0037b0", "background": "#faf8ff", "on-tertiary": "#ffffff", "on-secondary": "#ffffff", "surface-container": "#eaedff", "surface-container-highest": "#dae2fd", "secondary-fixed": "#89f5e7", "tertiary-fixed": "#e2dfff", "on-primary-fixed-variant": "#0039b5", "surface-container-low": "#f2f3ff", "on-surface": "#131b2e", "on-secondary-container": "#006f66", "on-tertiary-fixed": "#0f0069", "on-secondary-fixed-variant": "#005049", "error": "#ba1a1a", "primary-fixed": "#dce1ff", "inverse-on-surface": "#eef0ff", "outline-variant": "#c4c5d7", "on-tertiary-fixed-variant": "#3323cc", "surface-bright": "#faf8ff", "surface-variant": "#dae2fd", "on-primary-fixed": "#001551", "surface-container-high": "#e2e7ff", "on-error": "#ffffff", "primary-fixed-dim": "#b7c4ff", "tertiary-container": "#4b41e1", "on-secondary-fixed": "#00201d", "secondary-fixed-dim": "#6bd8cb", "tertiary": "#311fca", "surface-container-lowest": "#ffffff", "surface": "#faf8ff", "on-error-container": "#93000a", "error-container": "#ffdad6", "secondary-container": "#86f2e4", "surface-dim": "#d2d9f4" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xs": "0.25rem", "space-md": "1rem", "margin-desktop": "2rem", "margin": "1rem", "gutter": "1rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "margin-tablet": "1.5rem", "gutter-desktop": "1.5rem" }, "fontFamily": { "headline-lg": ["Inter"], "code-metric": ["JetBrains Mono"], "headline-lg-mobile": ["Inter"], "headline-sm": ["Inter"], "label-badge": ["Inter"], "label-caps": ["JetBrains Mono"], "display-hero-mobile": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "body-sm": ["Inter"], "display-hero": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "code-metric": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "headline-lg-mobile": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-badge": ["12px", { "lineHeight": "16px", "fontWeight": "600" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }], "display-hero-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "display-hero": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><img alt="LabLink Monogram Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrACR6dqnVa_DxGRvLd1smgyC5mH4zNiIa54NXxWBNs_Fz1Z33OyORovG4F2pyfczWF6mZRSork24Jqr240FICyeSZ86FmOo_I88Bie279Y5GCEo2jY-Y1TG9wYrmFBHXEqlYMDvqMFiTI2Dge7pFNM2mBIRTSGa9v23lFRI4Nkrk461Wbp7yplK7emxD5SDuuMV5W_A_D57lIXToVf-dPCaWqUDEBKqa5YF8cWu695-xA"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate">LabLink</span><span class="font-label-caps text-label-caps text-on-surface-variant/70 uppercase hidden sm:inline">• Core Facility</span></div><span class="font-label-caps text-label-caps text-secondary font-medium tracking-tight truncate">Cambridge NanoTech Labs</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="Notifications" class="relative w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-4 h-4 rounded-full bg-error text-on-error font-code-metric text-[10px] flex items-center justify-center font-bold">3</span></button><div class="relative flex items-center pl-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWZyP1cGxnFbiwHTSsv7cdwBDG3t8WYIu3r3_pxBPaf1W5xKyFhGTK3MI5PlG4InNl29OJFE-uyCzC9H03Og6lVhaqVheGRovMl3CT4LY6qk0H1cqypzqyjdzcX2EtP9CDJBI4NM23yIF-y0lCpOnBY-sdVjK9nrQEY7NM9IRFSvpdofGVze1fidMWcnmSzg21Jem2ctvBbqIRDzDSig20rnw6R20fQh9D0m360TM5"/><span class="absolute -bottom-1 -right-1 font-label-caps text-[9px] px-1 bg-surface-container-high text-on-surface font-semibold rounded-sm shadow-[0_1px_2px_rgba(0,0,0,0.08)]">COORD</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface flex-grow"><div class="flex flex-col w-full pb-8">
+<!-- Progress Header -->
+<div class="flex flex-col gap-space-xs mb-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary uppercase font-bold tracking-wider">Access Protocol</span>
+<span class="font-code-metric text-code-metric text-on-surface-variant font-semibold">Step 2 of 3</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-primary w-2/3 h-full transition-all duration-300"></div>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-1">Intelligent Scheduling &amp; Fair Allocation</h2>
+</div>
+<!-- Resource Identity Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md mb-space-md relative overflow-hidden">
+<div class="flex gap-space-md">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Thermo Fisher Scientific Vanquish UHPLC System in an ultra-clean academic molecular separations facility, stainless steel instrumentation, high-pressure chromatography tubes, clinical ambient lighting, hyper-detailed scientific equipment photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK-Z223xIQ_sXVk3AjYyPnYkTRn_qOLACKMPNTsJAekcnvhfCnlIur3umUO4lhyRf1zhb1KCnqpT-j6rGTtkBPPOlN4ZjSU3fEc-ZNoCpf6_8lefWv4S5fSPBw5ojkg7vZ_Mtago2C5HzlcaablEZ_eDiWcKkaK4eY1j5XWiWgBS5XGbbtO3qggezTCY9yKATuGxYkpgprs0qf0_zKfoh8nt-oQYr0EF1ydbs6YYyY"/>
+</div>
+<div class="flex flex-col justify-center min-w-0 flex-1">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-secondary font-medium uppercase">Active Hardware</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight truncate">Thermo Fisher Scientific Vanquish UHPLC System</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5">Molecular Separations Facility, Rm 310</p>
+<p class="font-label-caps text-[11px] text-on-surface-variant/80 mt-1">PI: Dr. Elena Rostova</p>
+</div>
+</div>
+</div>
+<!-- Form Section 1: Project Justification & Governance -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md mb-space-md flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs pb-1">
+<span class="material-symbols-outlined text-[18px] text-primary">verified_user</span>
+<h4 class="font-label-caps text-label-caps uppercase text-on-surface tracking-wider font-bold">1. Project Justification &amp; Compliance</h4>
+</div>
+<!-- Academic Project Select -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps uppercase text-on-surface-variant font-medium">Academic Project</label>
+<div class="relative">
+<select class="w-full h-11 px-3 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg appearance-none focus:outline-none focus:bg-surface-container-lowest shadow-sm pr-9 truncate">
+<option selected="">MSci Capstone: Peptide Synthesis Purification (Grant #BIO-2025-09)</option>
+<option>Independent Study: Monoclonal Column Analysis</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-3 pointer-events-none text-on-surface-variant text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Two-column info grid -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1 p-2.5 bg-surface-container-low rounded-lg">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant font-medium">Faculty Sponsor</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">person_check</span>
+<span class="font-headline-sm text-body-md text-on-surface truncate">Prof. Marcus Vance</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 p-2.5 bg-surface-container-low rounded-lg">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant font-medium">Billing Account</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-primary">account_balance_wallet</span>
+<span class="font-code-metric text-code-metric text-on-surface truncate">ENG-RES-4491-CAP</span>
+</div>
+</div>
+</div>
+<!-- Verified Risk Protocol File Upload State -->
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant font-medium">Protocol &amp; Safety Risk Assessment</span>
+<div class="flex items-center justify-between p-3 bg-secondary-container/20 rounded-lg">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-code-metric text-code-metric text-on-surface truncate font-semibold">Risk_Protocol_Rostova_v2.pdf</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-secondary font-bold">check_circle</span>
+<span class="font-label-caps text-[10px] text-secondary font-bold uppercase tracking-wider">Signed &amp; Validated</span>
+</div>
+</div>
+</div>
+<button aria-label="Inspect Document" class="p-1.5 text-on-surface-variant hover:text-on-surface flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Form Section 2: Scheduling & Duration Parameters -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md mb-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">schedule</span>
+<h4 class="font-label-caps text-label-caps uppercase text-on-surface tracking-wider font-bold">2. Booking Parameters</h4>
+</div>
+<span class="font-label-caps text-[10px] bg-surface-container-high text-on-surface-variant px-1.5 py-0.5 rounded font-medium">Single Session</span>
+</div>
+<!-- Parameters Matrix -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant font-medium">Target Deadline</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">November 15, 2025</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline">event_available</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col p-2.5 bg-surface-container-low rounded-lg">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant font-medium">Desired Block</span>
+<span class="font-headline-sm text-body-md text-on-surface mt-0.5">4.0 Hours</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant/80">Continuous elution run</span>
+</div>
+<div class="flex flex-col p-2.5 bg-surface-container-low rounded-lg">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant font-medium">Requested Window</span>
+<span class="font-code-metric text-[12px] text-on-surface font-semibold mt-0.5 truncate">Nov 6, 09:00-13:00</span>
+<span class="font-label-caps text-[10px] text-error font-semibold mt-0.5">Conflict Flagged</span>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Explainability Module -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md mb-space-lg relative overflow-hidden">
+<!-- Left Indigo Academic Accent Bar -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-tertiary-container"></div>
+<div class="pl-2">
+<!-- Engine Header Tag -->
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">auto_awesome</span>
+<span class="font-label-caps text-label-caps uppercase text-tertiary font-bold tracking-wider">LabLink AI Scheduling Engine</span>
+</div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-[10px] px-2 py-0.5 rounded font-semibold tracking-wide">Real-time</span>
+</div>
+<!-- Fair Allocation Metrics -->
+<div class="bg-surface-container-low rounded-lg p-2.5 mb-space-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant font-bold">Group Fairness Quota</span>
+<span class="font-code-metric text-[11px] text-secondary font-bold">6h / 20h Monthly Used (High Priority)</span>
+</div>
+<!-- Progress bar for quota -->
+<div class="w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-secondary w-[30%] h-full"></div>
+</div>
+</div>
+<!-- Detected Bottleneck / Conflict Callout -->
+<div class="bg-error-container/30 rounded-lg p-2.5 mb-space-sm flex items-start gap-2">
+<span class="material-symbols-outlined text-error text-[18px] flex-shrink-0 mt-0.5">report_problem</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-badge text-label-badge text-on-error-container">Overlap Detected</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug mt-0.5">
+            Requested window intersects with facility preventative solvent-line purge scheduled at <strong>12:00 - 13:00</strong>.
+          </p>
+</div>
+</div>
+<!-- AI Resolution Suggestion -->
+<div class="bg-surface-container-low rounded-lg p-space-sm mb-space-md">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-tertiary text-[16px]">tune</span>
+<span class="font-headline-sm text-headline-sm text-on-surface text-[14px]">Optimal Allocation Alternative</span>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<div class="bg-surface-container-lowest px-2 py-1 rounded shadow-sm">
+<span class="font-code-metric text-code-metric text-primary font-bold">Nov 6, 13:00 - 17:00</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">or</span>
+<div class="bg-surface-container px-2 py-1 rounded">
+<span class="font-code-metric text-[12px] text-on-surface font-medium">Nov 7, 09:00 - 13:00</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<strong class="text-on-surface">Algorithmic Justification:</strong> Guarantees an uninterrupted 4-hour batch cycle immediately following fresh column purge, prevents multi-user peptide cross-contamination, and aligns with certified lab technician coverage.
+        </p>
+</div>
+<!-- 1-Click AI Adoption Action -->
+<button class="w-full min-h-[44px] bg-tertiary-container hover:bg-tertiary text-on-tertiary rounded-lg font-headline-sm text-[13px] px-space-md py-2.5 flex items-center justify-center gap-space-xs transition-colors shadow-sm active:scale-[0.99]" id="acceptAiBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Accept AI Recommended Slot: Nov 6, 13:00 - 17:00</span>
+</button>
+</div>
+</div>
+<!-- Primary Submission Section -->
+<div class="flex flex-col gap-space-sm">
+<button class="w-full min-h-[48px] bg-primary hover:bg-primary-container text-on-primary rounded-lg font-headline-sm text-headline-sm px-space-md py-3 flex items-center justify-center gap-space-sm shadow-md transition-all active:scale-[0.99]" type="button">
+<span>Submit Request for Faculty Approval</span>
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+<!-- Institutional Policy Footnote -->
+<div class="flex items-start gap-2 px-1 pt-1">
+<span class="material-symbols-outlined text-outline text-[16px] flex-shrink-0 mt-0.5">policy</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-normal">
+        Requires Principal Investigator sign-off. Direct student self-booking without faculty authorization is restricted under University Bio-Safety Tier II regulations.
+      </p>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const aiBtn = document.getElementById('acceptAiBtn');
+    if (!aiBtn) return;
+    
+    aiBtn.addEventListener('click', function() {
+      aiBtn.innerHTML = `
+        <span class="material-symbols-outlined text-[18px] text-secondary-fixed">check_circle</span>
+        <span class="font-bold text-secondary-fixed">Alternative Slot Applied: Nov 6 (13:00 - 17:00)</span>
+      `;
+      aiBtn.classList.remove('bg-tertiary-container', 'hover:bg-tertiary');
+      aiBtn.classList.add('bg-secondary', 'cursor-default');
+    });
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="h-16 px-space-xs flex items-center justify-around"><a class="flex flex-col items-center justify-center min-w-[56px] h-11 text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-label-caps text-[10px] uppercase mt-0.5 tracking-wide">Console</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-11 text-on-surface-variant hover:text-on-surface transition-colors" data-path="catalog-equipment" href="#"><span class="material-symbols-outlined text-[20px]">biotech</span><span class="font-label-caps text-[10px] uppercase mt-0.5 tracking-wide">Catalog</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-11 text-on-surface-variant hover:text-on-surface transition-colors" data-path="calendar-bookings" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span class="font-label-caps text-[10px] uppercase mt-0.5 tracking-wide">Schedule</span></a><a class="relative flex flex-col items-center justify-center min-w-[56px] h-11 text-on-surface-variant hover:text-on-surface transition-colors" data-path="ai-requests-approvals" href="#"><div class="relative"><span class="material-symbols-outlined text-[20px]">rule</span><span class="absolute -top-1 -right-2 w-2 h-2 rounded-full bg-error"></span></div><span class="font-label-caps text-[10px] uppercase mt-0.5 tracking-wide">Approvals</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-11 text-on-surface-variant hover:text-on-surface transition-colors" data-path="analytics-admin" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="font-label-caps text-[10px] uppercase mt-0.5 tracking-wide">Metrics</span></a></div></nav></body></html>

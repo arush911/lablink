@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-background": "#131b2e", "inverse-surface": "#283044", "outline": "#747686", "tertiary-fixed-dim": "#c3c0ff", "inverse-primary": "#b7c4ff", "secondary": "#006a61", "on-primary": "#ffffff", "on-primary-container": "#cad3ff", "primary-container": "#1d4ed8", "on-surface-variant": "#434655", "surface-tint": "#2151da", "on-tertiary-container": "#d3d1ff", "primary": "#0037b0", "background": "#faf8ff", "on-tertiary": "#ffffff", "on-secondary": "#ffffff", "surface-container": "#eaedff", "surface-container-highest": "#dae2fd", "secondary-fixed": "#89f5e7", "tertiary-fixed": "#e2dfff", "on-primary-fixed-variant": "#0039b5", "surface-container-low": "#f2f3ff", "on-surface": "#131b2e", "on-secondary-container": "#006f66", "on-tertiary-fixed": "#0f0069", "on-secondary-fixed-variant": "#005049", "error": "#ba1a1a", "primary-fixed": "#dce1ff", "inverse-on-surface": "#eef0ff", "outline-variant": "#c4c5d7", "on-tertiary-fixed-variant": "#3323cc", "surface-bright": "#faf8ff", "surface-variant": "#dae2fd", "on-primary-fixed": "#001551", "surface-container-high": "#e2e7ff", "on-error": "#ffffff", "primary-fixed-dim": "#b7c4ff", "tertiary-container": "#4b41e1", "on-secondary-fixed": "#00201d", "secondary-fixed-dim": "#6bd8cb", "tertiary": "#311fca", "surface-container-lowest": "#ffffff", "surface": "#faf8ff", "on-error-container": "#93000a", "error-container": "#ffdad6", "secondary-container": "#86f2e4", "surface-dim": "#d2d9f4" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xs": "0.25rem", "space-md": "1rem", "margin-desktop": "2rem", "margin": "1rem", "gutter": "1rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "margin-tablet": "1.5rem", "gutter-desktop": "1.5rem" }, "fontFamily": { "headline-lg": ["Inter"], "code-metric": ["JetBrains Mono"], "headline-lg-mobile": ["Inter"], "headline-sm": ["Inter"], "label-badge": ["Inter"], "label-caps": ["JetBrains Mono"], "display-hero-mobile": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "body-sm": ["Inter"], "display-hero": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "code-metric": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "headline-lg-mobile": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-badge": ["12px", { "lineHeight": "16px", "fontWeight": "600" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }], "display-hero-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "display-hero": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><img alt="LabLink Monogram Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrACR6dqnVa_DxGRvLd1smgyC5mH4zNiIa54NXxWBNs_Fz1Z33OyORovG4F2pyfczWF6mZRSork24Jqr240FICyeSZ86FmOo_I88Bie279Y5GCEo2jY-Y1TG9wYrmFBHXEqlYMDvqMFiTI2Dge7pFNM2mBIRTSGa9v23lFRI4Nkrk461Wbp7yplK7emxD5SDuuMV5W_A_D57lIXToVf-dPCaWqUDEBKqa5YF8cWu695-xA"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate">LabLink</span><span class="font-label-caps text-label-caps text-on-surface-variant/70 uppercase hidden sm:inline">• Core Facility</span></div><span class="font-label-caps text-label-caps text-secondary font-medium tracking-tight truncate">Cambridge NanoTech Labs</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="Notifications" class="relative w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-4 h-4 rounded-full bg-error text-on-error font-code-metric text-[10px] flex items-center justify-center font-bold">3</span></button><div class="relative flex items-center pl-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWZyP1cGxnFbiwHTSsv7cdwBDG3t8WYIu3r3_pxBPaf1W5xKyFhGTK3MI5PlG4InNl29OJFE-uyCzC9H03Og6lVhaqVheGRovMl3CT4LY6qk0H1cqypzqyjdzcX2EtP9CDJBI4NM23yIF-y0lCpOnBY-sdVjK9nrQEY7NM9IRFSvpdofGVze1fidMWcnmSzg21Jem2ctvBbqIRDzDSig20rnw6R20fQh9D0m360TM5"/><span class="absolute -bottom-1 -right-1 font-label-caps text-[9px] px-1 bg-surface-container-high text-on-surface font-semibold rounded-sm shadow-[0_1px_2px_rgba(0,0,0,0.08)]">COORD</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface flex-grow"><div class="flex flex-col w-full pb-6 space-y-4">
+<!-- Coordinator Metadata Header -->
+<div class="bg-surface-container-low p-3.5 rounded-xl shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider">PI Audit Console</span>
+<span class="font-code-metric text-code-metric text-on-surface-variant">Queue: 3 Pending</span>
+</div>
+<h1 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Faculty Approval Queue</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span>Prof. Marcus Vance • Dept. of Materials &amp; Chemical Eng</span>
+</p>
+</div>
+<!-- Priority Conflict Notification Banner -->
+<div class="bg-error-container text-on-error-container p-3 rounded-xl shadow-sm flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-error flex-shrink-0 mt-0.5">warning</span>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-error-container uppercase font-bold">Action Required</span>
+<span class="font-code-metric text-[11px] text-error font-semibold">Priority 1</span>
+</div>
+<p class="font-headline-sm text-[13px] leading-snug mt-0.5 font-semibold">1 Scheduling Conflict Detected</p>
+<p class="font-body-sm text-[12px] text-on-error-container/90 mt-0.5">Shared High-Resolution SEM Cluster (Bay 4-East)</p>
+</div>
+</div>
+<!-- Explainable Conflict Resolution Panel -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Header with indicator bar logic -->
+<div class="p-3.5 bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-3.5 bg-primary rounded-full"></span>
+<span class="font-label-caps text-label-caps text-primary uppercase font-bold">Fairness Engine Resolution</span>
+</div>
+<span class="font-code-metric text-code-metric text-secondary font-semibold bg-secondary-container/40 text-on-secondary-container px-2 py-0.5 rounded">99.4% Match</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-[15px] text-on-surface">JEOL JSM-7800F FE-SEM Contention</h2>
+<p class="font-code-metric text-[12px] text-on-surface-variant mt-0.5">Target Window: Nov 6, 14:00 – 18:00 (4.0h Overlap)</p>
+</div>
+</div>
+<!-- Contending Parties Comparison -->
+<div class="p-3.5 flex flex-col gap-3">
+<!-- Request A -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col gap-2 relative">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded-md bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-headline-sm text-xs">AC</div>
+<div class="min-w-0">
+<span class="font-headline-sm text-body-md text-on-surface truncate block">Alex Chen (PhD Yr 2)</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant block">Thesis Advisor: Dr. K. Nakamura</span>
+</div>
+</div>
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-error-container text-on-error-container flex items-center gap-1 flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+            Deadline: 48h
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface bg-surface-container-lowest p-2 rounded">
+<span class="font-semibold text-on-surface">Experiment:</span> In-situ Tensile Testing on Titanium Grade 5 Alloys
+        </p>
+<div class="grid grid-cols-3 gap-1.5 font-code-metric text-[11px] text-on-surface-variant pt-1">
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant/70 uppercase">Submitted</span>
+<span class="font-medium text-on-surface">3 days ago</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant/70 uppercase">Milestone</span>
+<span class="font-medium text-error font-semibold">Nov 8 (Hard)</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant/70 uppercase">Nov Quota</span>
+<span class="font-medium text-on-surface">8h / 30h</span>
+</div>
+</div>
+</div>
+<!-- Request B -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col gap-2 relative">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded-md bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-headline-sm text-xs">PP</div>
+<div class="min-w-0">
+<span class="font-headline-sm text-body-md text-on-surface truncate block">Dr. Priya Patel (Postdoc)</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant block">PI: Prof. Marcus Vance</span>
+</div>
+</div>
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant flex items-center gap-1 flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span>
+            Routine Prep
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface bg-surface-container-lowest p-2 rounded">
+<span class="font-semibold text-on-surface">Experiment:</span> High-throughput Polymer Nanofiber Lattice Imaging
+        </p>
+<div class="grid grid-cols-3 gap-1.5 font-code-metric text-[11px] text-on-surface-variant pt-1">
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant/70 uppercase">Submitted</span>
+<span class="font-medium text-on-surface">Yesterday</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant/70 uppercase">Milestone</span>
+<span class="font-medium text-on-surface">Nov 22 (Flex)</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant/70 uppercase">Nov Quota</span>
+<span class="font-medium text-on-surface">24h / 30h</span>
+</div>
+</div>
+</div>
+<!-- AI Resolution Explainability Summary -->
+<div class="p-3 bg-surface-container rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+<span class="font-label-caps text-label-caps font-bold">Algorithmic Trade-Off Summary</span>
+</div>
+<p class="font-body-sm text-[13px] text-on-surface leading-snug">
+          Award slot <strong class="text-on-surface font-semibold">Nov 6, 14:00–18:00 to Alex Chen</strong> based on immediate graduation milestone. 
+        </p>
+<div class="p-2 bg-surface-container-lowest rounded text-secondary flex items-start gap-2 mt-1">
+<span class="material-symbols-outlined text-[16px] flex-shrink-0 mt-0.5">alt_route</span>
+<span class="font-body-sm text-[12px] leading-tight text-on-surface">
+<strong>Automated Routing:</strong> Dr. Priya Patel assigned to adjacent <span class="font-code-metric font-medium text-primary">Zeiss Gemini 500 SEM</span> (Twin resolution spec, currently idle).
+          </span>
+</div>
+</div>
+<!-- Resolution CTAs -->
+<div class="flex flex-col gap-2 pt-1">
+<button class="w-full h-11 px-4 rounded-lg bg-primary-container text-on-primary font-headline-sm text-body-md font-semibold flex items-center justify-center gap-2 active:bg-primary transition-colors shadow-sm" id="resolveBtn">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+<span>Approve AI Allocation &amp; Notify Both</span>
+</button>
+<button class="w-full h-11 px-4 rounded-lg bg-surface-container-lowest text-on-surface font-headline-sm text-body-md font-medium flex items-center justify-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">splitscreen</span>
+<span>Override &amp; Split Slot (2h Each)</span>
+</button>
+<button class="w-full py-2 text-center text-primary font-headline-sm text-body-sm hover:underline">
+          Open Interactive Conflict Matrix
+        </button>
+</div>
+</div>
+</section>
+<!-- Secondary Pending Approval Requests -->
+<section class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between px-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Standard Protocol Requests</h3>
+<span class="font-code-metric text-[12px] text-on-surface-variant">2 Pending</span>
+</div>
+<!-- Request Card 1 -->
+<div class="bg-surface-container-lowest p-3.5 rounded-xl shadow-sm flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-headline-sm text-[14px] text-on-surface">Sarah Jenkins</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant block">Bioengineering • Microfluidics Lab</span>
+</div>
+<span class="font-label-badge text-[11px] px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-medium flex items-center gap-1 flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          Safety: L2 Certified
+        </span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">science</span>
+<div>
+<span class="font-headline-sm text-[13px] text-on-surface block">Microfluidics Flow Analyzer</span>
+<span class="font-code-metric text-[11px] text-on-surface-variant">Thu, Nov 7 • 09:00 - 12:00 (3h)</span>
+</div>
+</div>
+<span class="font-code-metric text-[11px] text-on-surface-variant font-medium bg-surface-container-highest px-1.5 py-0.5 rounded">Bay 2</span>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-0.5">
+<button class="h-10 rounded-lg bg-surface-container text-on-surface-variant font-headline-sm text-body-sm font-medium hover:bg-error-container hover:text-on-error-container transition-colors">
+          Reject with Reason
+        </button>
+<button class="h-10 rounded-lg bg-primary-container text-on-primary font-headline-sm text-body-sm font-semibold active:bg-primary transition-colors shadow-sm">
+          Approve Slot
+        </button>
+</div>
+</div>
+<!-- Request Card 2 -->
+<div class="bg-surface-container-lowest p-3.5 rounded-xl shadow-sm flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-headline-sm text-[14px] text-on-surface">Mateo Ortiz</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant block">Robotics &amp; Autonomous Systems</span>
+</div>
+<span class="font-label-badge text-[11px] px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium flex items-center gap-1 flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span>
+          Tech Supervision Req.
+        </span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">precision_manufacturing</span>
+<div>
+<span class="font-headline-sm text-[13px] text-on-surface block">KUKA Agilus KR 6 Workcell</span>
+<span class="font-code-metric text-[11px] text-on-surface-variant">Fri, Nov 8 • 13:00 - 19:00 (6h)</span>
+</div>
+</div>
+<span class="font-code-metric text-[11px] text-on-surface-variant font-medium bg-surface-container-highest px-1.5 py-0.5 rounded">Cell C</span>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-0.5">
+<button class="h-10 rounded-lg bg-surface-container text-on-surface font-headline-sm text-body-sm font-medium hover:bg-surface-container-high transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">person_add</span>
+          Assign Tech
+        </button>
+<button class="h-10 rounded-lg bg-primary-container text-on-primary font-headline-sm text-body-sm font-semibold active:bg-primary transition-colors shadow-sm">
+          Approve Slot
+        </button>
+</div>
+</div>
+</section>
+<!-- Facility Health & Load Monitor -->
+<section class="bg-surface-container-lowest p-3.5 rounded-xl shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase font-semibold">Weekly Cluster Utilization</span>
+<span class="font-code-metric text-[11px] text-secondary font-medium">Nov 4 – Nov 10</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Cluster 1 -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-[13px] text-on-surface">Nanotech Lab B4</span>
+<span class="font-code-metric text-code-metric font-semibold text-error">88%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 88%"></div>
+</div>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Near peak saturation (SEM/TEM)</span>
+</div>
+<!-- Cluster 2 -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-[13px] text-on-surface">Cleanroom Suite A</span>
+<span class="font-code-metric text-code-metric font-semibold text-secondary">62%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 62%"></div>
+</div>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Lithography bays nominal</span>
+</div>
+</div>
+</section>
+<!-- Feedback Toast Template via JS -->
+<div class="fixed bottom-20 left-4 right-4 bg-inverse-surface text-inverse-on-surface p-3 rounded-lg shadow-xl flex items-center justify-between gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none z-40" id="actionToast">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span>
+<span class="font-body-sm text-[13px] truncate">Resolution executed. Notification sent to Alex Chen &amp; Dr. Patel.</span>
+</div>
+<span class="font-code-metric text-[11px] text-inverse-primary flex-shrink-0">UNDO</span>
+</div>
+</div>
+<script>
+  (function() {
+    const resolveBtn = document.getElementById('resolveBtn');
+    const toast = document.getElementById('actionToast');
+
+    if (resolveBtn && toast) {
+      resolveBtn.addEventListener('click', () => {
+        resolveBtn.disabled = true;
+        resolveBtn.classList.add('opacity-75');
+        resolveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span> Processing Dispatch...';
+
+        setTimeout(() => {
+          resolveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">verified</span> Allocation Approved';
+          resolveBtn.classList.remove('bg-primary-container');
+          resolveBtn.classList.add('bg-secondary');
+
+          // Trigger toast
+          toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+          setTimeout(() => {
+            toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+          }, 3500);
+        }, 600);
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="h-16 px-space-xs flex items-center justify-around"><a class="flex flex-col items-center justify-center min-w-[56px] h-11 text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-label-caps text-[10px] uppercase mt-0.5 tracking-wide">Console</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-11 text-on-surface-variant hover:text-on-surface transition-colors" data-path="catalog-equipment" href="#"><span class="material-symbols-outlined text-[20px]">biotech</span><span class="font-label-caps text-[10px] uppercase mt-0.5 tracking-wide">Catalog</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-11 text-on-surface-variant hover:text-on-surface transition-colors" data-path="calendar-bookings" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span class="font-label-caps text-[10px] uppercase mt-0.5 tracking-wide">Schedule</span></a><a class="relative flex flex-col items-center justify-center min-w-[56px] h-11 text-on-surface-variant hover:text-on-surface transition-colors" data-path="ai-requests-approvals" href="#"><div class="relative"><span class="material-symbols-outlined text-[20px]">rule</span><span class="absolute -top-1 -right-2 w-2 h-2 rounded-full bg-error"></span></div><span class="font-label-caps text-[10px] uppercase mt-0.5 tracking-wide">Approvals</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-11 text-on-surface-variant hover:text-on-surface transition-colors" data-path="analytics-admin" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="font-label-caps text-[10px] uppercase mt-0.5 tracking-wide">Metrics</span></a></div></nav></body></html>
