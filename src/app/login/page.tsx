@@ -6,6 +6,7 @@ import { ShieldCheck, Beaker, ArrowRight, Loader2, AlertCircle, User, Graduation
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [evaluatorSecret, setEvaluatorSecret] = useState("");
   const [loadingRole, setLoadingRole] = useState<"student" | "faculty" | "standard" | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -16,7 +17,10 @@ export default function LoginPage() {
     setError(null);
     setSuccessMessage(null);
     try {
-      const token = role === "student" ? "DEMO_TOKEN_STUDENT_ALEX_CHEN" : "DEMO_TOKEN_FACULTY_MARCUS_VANCE";
+      let token = evaluatorSecret.trim();
+      if (!token) {
+        token = role === "student" ? "DEMO_TOKEN_STUDENT_ALEX_CHEN" : "DEMO_TOKEN_FACULTY_MARCUS_VANCE";
+      }
       
       // Call server sync endpoint (which sets server-side HttpOnly cookie)
       const res = await fetch("/api/v1/auth/sync", {
@@ -29,14 +33,17 @@ export default function LoginPage() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
+        if (data.message === "DEMO_AUTH_STRICTLY_PROHIBITED_IN_PRODUCTION") {
+          throw new Error("Production Security Lock: Default demo bearer tokens are locked out in production. Please enter the high-entropy Evaluator Secret below to proceed.");
+        }
         throw new Error(data.message || `Authentication failed with status ${res.status}`);
       }
 
-      const { user } = await res.json();
+      const { user, sessionToken } = await res.json();
       setSuccessMessage(`Authenticated as ${user.fullName} (${user.role.toUpperCase()})`);
 
       // Set fallback client-side cookie if needed, while HttpOnly is set by server
-      document.cookie = `lablink_token=${token}; path=/; max-age=86400; SameSite=Lax`;
+      document.cookie = `lablink_token=${sessionToken || token}; path=/; max-age=86400; SameSite=Lax`;
 
       // Full navigation guarantees clean state and immediate cookie transmission
       if (user.role === "faculty") {
@@ -138,6 +145,19 @@ export default function LoginPage() {
                 </div>
                 <ArrowRight className="w-5 h-5 text-teal-700 shrink-0 ml-2" />
               </button>
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-[#cbd5e1]/60">
+              <label className="block text-[10px] font-semibold uppercase tracking-wider text-[#64748b] font-mono mb-1">
+                Production Evaluator Secret (Optional for Local, Required for Prod)
+              </label>
+              <input
+                type="password"
+                value={evaluatorSecret}
+                onChange={(e) => setEvaluatorSecret(e.target.value)}
+                placeholder="Enter high-entropy evaluator secret..."
+                className="w-full px-2.5 py-1.5 text-xs border border-[#cbd5e1] rounded bg-white font-mono focus:ring-1 focus:ring-blue-600 focus:outline-none"
+              />
             </div>
           </div>
 

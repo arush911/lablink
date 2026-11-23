@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { verifyIdToken } from "@/lib/auth/admin";
+import { verifyIdToken, createEvaluatorSessionToken } from "@/lib/auth/admin";
 import { query } from "@/lib/db/pool";
+import { env } from "@/lib/env";
 
 export const runtime = "nodejs";
 
@@ -55,6 +56,11 @@ export async function POST(req: Request) {
         );
       }
 
+      const isProduction = env.NODE_ENV === "production" || process.env.NODE_ENV === "production";
+      const isDemoAccount = user.email === "student.demo@lablink.edu" || user.email === "faculty.demo@lablink.edu";
+      // In production evaluator access, issue an HMAC-signed session token; in dev/test keep the verified token
+      const cookieToken = (isProduction && isDemoAccount) ? createEvaluatorSessionToken(user.role) : token;
+
       // Return authoritative record. Role is NEVER modified by client input!
       const res = NextResponse.json({
         user: {
@@ -67,12 +73,13 @@ export async function POST(req: Request) {
           departmentId: user.department_id,
           isActive: user.is_active,
         },
+        sessionToken: cookieToken,
       });
 
       // Secure, HttpOnly session cookie
       res.cookies.set({
         name: "lablink_token",
-        value: token,
+        value: cookieToken,
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
