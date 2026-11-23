@@ -1,36 +1,49 @@
-import readline from "readline";
 import { Client } from "pg";
 import fs from "fs";
 import path from "path";
 import crypto from "crypto";
 
+/**
+ * Securely collects user input from the terminal without echoing characters.
+ * Uses raw mode on stdin to prevent OS-level terminal echoing.
+ */
 function promptHidden(query: string): Promise<string> {
   return new Promise((resolve) => {
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
-
-    // Mute stdout while typing secret
-    const stdin = process.stdin;
     process.stdout.write(query);
 
+    const stdin = process.stdin;
+    const isTTY = stdin.isTTY;
+
+    if (isTTY) {
+      stdin.setRawMode(true);
+    }
+    stdin.resume();
+    stdin.setEncoding("utf-8");
+
     let input = "";
-    const onData = (char: Buffer) => {
-      const str = char.toString("utf-8");
-      if (str === "\r" || str === "\n" || str === "\r\n") {
-        stdin.removeListener("data", onData);
-        process.stdout.write("\n");
-        rl.close();
-        resolve(input.trim());
-      } else if (str === "\u0003") { // Ctrl+C
-        process.exit(1);
-      } else if (str === "\b" || str === "\x7f") { // Backspace
-        if (input.length > 0) {
-          input = input.slice(0, -1);
+    const onData = (chunk: string) => {
+      for (const char of chunk) {
+        if (char === "\r" || char === "\n" || char === "\u0004") {
+          if (isTTY) {
+            stdin.setRawMode(false);
+          }
+          stdin.pause();
+          stdin.removeListener("data", onData);
+          process.stdout.write("\n");
+          return resolve(input.trim());
+        } else if (char === "\u0003") { // Ctrl+C
+          if (isTTY) {
+            stdin.setRawMode(false);
+          }
+          process.stdout.write("\n");
+          process.exit(1);
+        } else if (char === "\b" || char === "\x7f") { // Backspace
+          if (input.length > 0) {
+            input = input.slice(0, -1);
+          }
+        } else {
+          input += char;
         }
-      } else {
-        input += str;
       }
     };
 
@@ -38,11 +51,18 @@ function promptHidden(query: string): Promise<string> {
   });
 }
 
+/**
+ * Strips credentials from connection strings before any error reporting.
+ */
+function sanitizeErrorMessage(msg: string): string {
+  return msg.replace(/(postgres(?:ql)?:\/\/)[^@]+@/gi, "$1***:***@");
+}
+
 async function runNeonSetup() {
   console.log("================================================================================");
   console.log("LABLINK 2026 — SECURE NEON DATABASE SETUP & MIGRATION RUNNER");
-  console.log("Expected Neon Compute Endpoint: ep-calm-rain-bdodv2pg");
-  console.log("Security Notice: Input is completely hidden and will never be echoed.");
+  console.log("Configured Compute Endpoint: ep-calm-rain-bdodv2pg");
+  console.log("Security Policy: Zero terminal echo, credentials strictly redacted in errors.");
   console.log("================================================================================\n");
 
   let connectionString = process.env.NEON_DATABASE_URL || "";
@@ -56,20 +76,36 @@ async function runNeonSetup() {
     process.exit(1);
   }
 
-  if (!connectionString.includes("ep-calm-rain-bdodv2pg")) {
-    console.warn("⚠️ Warning: Connection string does not contain compute endpoint 'ep-calm-rain-bdodv2pg'.");
-  }
-
-  // Ensure sslmode=require
+  // Parse connection URL
   let urlObj: URL;
   try {
     urlObj = new URL(connectionString);
-  } catch (err) {
+  } catch {
     console.error("❌ Error: Invalid connection string URL format.");
     process.exit(1);
   }
 
-  console.log(`\n[1/6] Connecting to Neon host: ${urlObj.hostname}...`);
+  // AUDIT CHECK 10 & 3: Strictly block localhost, non-Neon, and mismatched endpoints
+  const hostname = urlObj.hostname.toLowerCase();
+  if (hostname === "localhost" || hostname === "127.0.0.1" || !hostname.endsWith(".neon.tech")) {
+    console.error(`❌ Security Block: Hostname '${hostname}' is not a valid Neon cloud endpoint (*.neon.tech).`);
+    console.error("Accidental execution against local or unauthorized databases is strictly blocked. Aborting.");
+    process.exit(1);
+  }
+
+  if (!hostname.includes("ep-calm-rain-bdodv2pg")) {
+    console.error(`❌ Security Block: Hostname '${hostname}' does not match the configured project compute endpoint 'ep-calm-rain-bdodv2pg'. Aborting.`);
+    process.exit(1);
+  }
+
+  // AUDIT CHECK 4: Verify database name
+  const dbName = urlObj.pathname.replace(/^\//, "");
+  if (!dbName) {
+    console.error("❌ Error: No target database name specified in the connection string. Aborting.");
+    process.exit(1);
+  }
+
+  console.log(`\n[1/6] Connecting to verified Neon compute host: ${hostname} (Database: ${dbName})...`);
   const client = new Client({
     connectionString,
     ssl: { rejectUnauthorized: false },
@@ -88,7 +124,7 @@ async function runNeonSetup() {
     const schemaPath = path.join(__dirname, "../src/lib/db/schema.sql");
     const schemaSql = fs.readFileSync(schemaPath, "utf-8");
     await client.query(schemaSql);
-    console.log("✅ Schema applied successfully.");
+    console.log("✅ Schema applied successfully (idempotent, no tables dropped).");
 
     console.log("\n[4/6] Seeding departments, demo accounts, laboratories, and equipment...");
     // 1. Departments
@@ -366,12 +402,13 @@ async function runNeonSetup() {
     const sessionSecret = crypto.randomBytes(32).toString("hex");
 
     // Save connection string and evaluator secrets to .env.production.local (gitignored)
+    // AUDIT CHECK 8: Keep ENABLE_PROD_EVALUATOR_AUTH=false initially until verified on production
     const envProdPath = path.join(__dirname, "../.env.production.local");
     const envProdContent = `# LabLink Production Configuration (Auto-generated by secure-neon-setup)
 DATABASE_URL=${connectionString}
 NODE_ENV=production
 ENABLE_LOCAL_DEMO_AUTH=false
-ENABLE_PROD_EVALUATOR_AUTH=true
+ENABLE_PROD_EVALUATOR_AUTH=false
 EVALUATOR_STUDENT_SECRET=${studentSecret}
 EVALUATOR_FACULTY_SECRET=${facultySecret}
 EVALUATOR_SESSION_SECRET=${sessionSecret}
@@ -382,19 +419,25 @@ NEXT_PUBLIC_FIREBASE_PROJECT_ID=lablink-demo-2026
 `;
     fs.writeFileSync(envProdPath, envProdContent, "utf-8");
     console.log("✅ Stored production settings in .env.production.local (strictly gitignored).");
+    console.log("🔒 ENABLE_PROD_EVALUATOR_AUTH is initialized as 'false' per zero-trust requirement.");
 
     console.log("\n================================================================================");
     console.log("🎉 NEON SETUP COMPLETED SUCCESSFULLY!");
-    console.log("Host Endpoint:", urlObj.hostname);
-    console.log("Database Name:", urlObj.pathname.replace("/", ""));
+    console.log("Host Endpoint:", hostname);
+    console.log("Database Name:", dbName);
     console.log("No passwords or secrets were logged or echoed to terminal.");
     console.log("================================================================================");
   } finally {
-    await client.end();
+    try {
+      await client.end();
+    } catch {
+      // Disconnect safely
+    }
   }
 }
 
 runNeonSetup().catch((err) => {
-  console.error("❌ Neon Setup Failed:", err.message || err);
+  const safeMsg = sanitizeErrorMessage(err?.message || String(err));
+  console.error("❌ Neon Setup Failed:", safeMsg);
   process.exit(1);
 });

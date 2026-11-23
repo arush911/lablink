@@ -10,6 +10,7 @@ export default defineConfig({
   test: {
     environment: "node",
     globals: true,
+    fileParallelism: false,
     env: {
       ENABLE_LOCAL_DEMO_AUTH: "true",
       NODE_ENV: "test",
