@@ -85,6 +85,7 @@ function RequestFormContent() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submitting) return;
     setSubmitting(true);
     setError(null);
     setValidationErrors({});
@@ -104,12 +105,15 @@ function RequestFormContent() {
         safetyNotes: safetyNotes || null,
       };
 
+      const cookieMatch = typeof document !== "undefined" ? document.cookie.match(/lablink_token=([^;]+)/) : null;
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (cookieMatch) {
+        headers["Authorization"] = `Bearer ${cookieMatch[1]}`;
+      }
+
       const res = await fetch("/api/v1/requests", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer DEMO_TOKEN_STUDENT_ALEX_CHEN",
-        },
+        headers,
         body: JSON.stringify(payload),
       });
 
@@ -128,6 +132,12 @@ function RequestFormContent() {
       }
 
       setCreatedDocket(data.request);
+      // Clear form inputs
+      setProjectTitle("");
+      setAbstract("");
+      setCourseCode("");
+      setGrantCode("");
+      setSafetyNotes("");
     } catch (err: any) {
       setError(err.message || "An unexpected error occurred.");
     } finally {

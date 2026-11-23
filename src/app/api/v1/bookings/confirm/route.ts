@@ -76,9 +76,9 @@ export async function POST(req: Request) {
         };
       }
 
-      if (docket.status === "CANCELLED" || docket.status === "REJECTED") {
+      if (docket.status !== "APPROVED") {
         return {
-          error: `Cannot confirm booking for a request in ${docket.status} state.`,
+          error: `Cannot confirm booking: Request must be in APPROVED status prior to slot confirmation (current status: ${docket.status}).`,
           code: "INVALID_REQUEST_STATE",
           status: 400,
         };

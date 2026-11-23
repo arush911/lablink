@@ -1,11 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 import { ShieldCheck, Beaker, ArrowRight, Loader2, AlertCircle, User, GraduationCap, CheckCircle2 } from "lucide-react";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loadingRole, setLoadingRole] = useState<"student" | "faculty" | "standard" | null>(null);
@@ -13,6 +11,7 @@ export default function LoginPage() {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const handleQuickLogin = async (role: "student" | "faculty") => {
+    if (loadingRole !== null) return;
     setLoadingRole(role);
     setError(null);
     setSuccessMessage(null);
@@ -39,15 +38,14 @@ export default function LoginPage() {
       // Set fallback client-side cookie if needed, while HttpOnly is set by server
       document.cookie = `lablink_token=${token}; path=/; max-age=86400; SameSite=Lax`;
 
-      // Redirect immediately to role-appropriate portal
+      // Full navigation guarantees clean state and immediate cookie transmission
       if (user.role === "faculty") {
-        router.push("/faculty/review");
+        window.location.href = "/faculty/review";
       } else {
-        router.push("/dashboard");
+        window.location.href = "/dashboard";
       }
     } catch (err: any) {
       setError(err.message || "An unexpected error occurred during sign-in.");
-    } finally {
       setLoadingRole(null);
     }
   };

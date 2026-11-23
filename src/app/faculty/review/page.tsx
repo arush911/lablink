@@ -83,7 +83,13 @@ function FacultyReviewContent() {
     try {
       setLoading(true);
       setError(null);
-      const res = await fetch("/api/v1/requests");
+      const cookieMatch = typeof document !== "undefined" ? document.cookie.match(/lablink_token=([^;]+)/) : null;
+      const headers: Record<string, string> = {};
+      if (cookieMatch) {
+        headers["Authorization"] = `Bearer ${cookieMatch[1]}`;
+      }
+
+      const res = await fetch("/api/v1/requests", { headers });
       if (!res.ok) {
         if (res.status === 401 || res.status === 403) {
           router.push("/login?requiredRole=faculty");
@@ -102,19 +108,23 @@ function FacultyReviewContent() {
         preferredWindowEnd: r.preferredWindowEnd || r.preferred_window_end,
         rejectionReason: r.rejectionReason || r.rejection_reason,
         createdAt: r.createdAt || r.created_at,
-        projectTitle: r.projectTitle || r.project_title,
-        abstract: r.abstract,
-        grantCode: r.grantCode || r.grant_code,
-        hazardousMaterialsDeclared: Boolean(r.hazardousMaterialsDeclared ?? r.hazardous_materials_declared),
-        equipmentId: r.equipmentId || r.equipment_id,
-        equipmentName: r.equipmentName || r.equipment_name,
-        equipmentModel: r.equipmentModel || r.equipment_model,
-        assetTag: r.assetTag || r.asset_tag,
-        laboratoryName: r.laboratoryName || r.laboratory_name,
-        roomLocation: r.roomLocation || r.room_location,
-        studentId: r.studentId || r.student_id,
-        studentName: r.studentName || r.student_name,
-        studentEmail: r.studentEmail || r.student_email,
+        projectTitle: r.project?.title || r.projectTitle || r.project_title || "Laboratory Experiment",
+        abstract: r.project?.abstract || r.abstract || "",
+        grantCode: r.project?.grantCode || r.grantCode || r.grant_code || null,
+        hazardousMaterialsDeclared: Boolean(
+          r.project?.hazardousMaterialsDeclared ??
+          r.hazardousMaterialsDeclared ??
+          r.hazardous_materials_declared
+        ),
+        equipmentId: r.equipment?.id || r.equipmentId || r.equipment_id,
+        equipmentName: r.equipment?.name || r.equipmentName || r.equipment_name || "Instrumentation",
+        equipmentModel: r.equipment?.model || r.equipmentModel || r.equipment_model || "",
+        assetTag: r.equipment?.assetTag || r.assetTag || r.asset_tag || "",
+        laboratoryName: r.equipment?.laboratoryName || r.laboratoryName || r.laboratory_name || "Core Facility",
+        roomLocation: r.equipment?.roomLocation || r.roomLocation || r.room_location || "",
+        studentId: r.student?.id || r.studentId || r.student_id,
+        studentName: r.student?.name || r.studentName || r.student_name || "Student Researcher",
+        studentEmail: r.student?.email || r.studentEmail || r.student_email || "",
       }));
 
       setRequestsList(list);
@@ -122,7 +132,11 @@ function FacultyReviewContent() {
       // Select initial request or first pending request
       if (list.length > 0) {
         const found = initialRequestId ? list.find((item) => item.id === initialRequestId) : null;
-        const target = found || list.find((item) => item.status === "PENDING_REVIEW" || item.status === "APPROVED") || list[0];
+        const target =
+          found ||
+          list.find((item) => item.status === "PENDING_REVIEW") ||
+          list.find((item) => item.status === "APPROVED") ||
+          list[0];
         setSelectedRequestId(target.id);
       }
     } catch (err: any) {
@@ -136,9 +150,15 @@ function FacultyReviewContent() {
   const loadRequestDetails = useCallback(async (reqId: string) => {
     try {
       setLoadingSlots(true);
+      const cookieMatch = typeof document !== "undefined" ? document.cookie.match(/lablink_token=([^;]+)/) : null;
+      const headers: Record<string, string> = {};
+      if (cookieMatch) {
+        headers["Authorization"] = `Bearer ${cookieMatch[1]}`;
+      }
+
       const [detailRes, recRes] = await Promise.all([
-        fetch(`/api/v1/requests/${reqId}`),
-        fetch(`/api/v1/requests/${reqId}/recommendations`),
+        fetch(`/api/v1/requests/${reqId}`, { headers }),
+        fetch(`/api/v1/requests/${reqId}/recommendations`, { headers }),
       ]);
 
       if (detailRes.ok) {
@@ -180,9 +200,15 @@ function FacultyReviewContent() {
     setActionNotice(null);
 
     try {
+      const cookieMatch = typeof document !== "undefined" ? document.cookie.match(/lablink_token=([^;]+)/) : null;
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (cookieMatch) {
+        headers["Authorization"] = `Bearer ${cookieMatch[1]}`;
+      }
+
       const res = await fetch("/api/v1/bookings/confirm", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
         body: JSON.stringify({
           requestId: currentRequest.id,
           startTime: targetSlot.startTime,
@@ -202,9 +228,9 @@ function FacultyReviewContent() {
         type: "success",
       });
 
-      // Reload docket details
-      loadRequestDetails(currentRequest.id);
-      fetchQueue();
+      // Reload docket details and refresh queue
+      await loadRequestDetails(currentRequest.id);
+      await fetchQueue();
     } catch (err: any) {
       setActionNotice({
         title: "Confirmation Error",
@@ -223,9 +249,15 @@ function FacultyReviewContent() {
     setActionNotice(null);
 
     try {
+      const cookieMatch = typeof document !== "undefined" ? document.cookie.match(/lablink_token=([^;]+)/) : null;
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (cookieMatch) {
+        headers["Authorization"] = `Bearer ${cookieMatch[1]}`;
+      }
+
       const res = await fetch(`/api/v1/requests/${currentRequest.id}/review`, {
         method: "PATCH",
-        headers: { "Content-Type": "application/json" },
+        headers,
         body: JSON.stringify({
           action: "APPROVE",
           notes: facultyComments || "Approved by faculty PI.",
@@ -243,8 +275,8 @@ function FacultyReviewContent() {
         type: "success",
       });
 
-      loadRequestDetails(currentRequest.id);
-      fetchQueue();
+      await loadRequestDetails(currentRequest.id);
+      await fetchQueue();
     } catch (err: any) {
       setActionNotice({
         title: "Approval Error",
@@ -272,10 +304,16 @@ function FacultyReviewContent() {
     setActionNotice(null);
 
     try {
+      const cookieMatch = typeof document !== "undefined" ? document.cookie.match(/lablink_token=([^;]+)/) : null;
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (cookieMatch) {
+        headers["Authorization"] = `Bearer ${cookieMatch[1]}`;
+      }
+
       const fullReason = `[${rejectionReasonCategory.toUpperCase()}] ${facultyComments.trim()}`;
       const res = await fetch(`/api/v1/requests/${currentRequest.id}/review`, {
         method: "PATCH",
-        headers: { "Content-Type": "application/json" },
+        headers,
         body: JSON.stringify({
           action: "REJECT",
           rejectionReason: fullReason,
@@ -466,7 +504,7 @@ function FacultyReviewContent() {
         )}
 
         {/* Queue Selector Bar */}
-        {requestsList.length > 1 && (
+        {requestsList.length > 0 && (
           <div className="flex items-center gap-2 overflow-x-auto pb-1">
             <span className="text-xs font-semibold text-[#64748b] uppercase tracking-wider shrink-0 mr-1">
               Review Queue:
@@ -481,9 +519,10 @@ function FacultyReviewContent() {
                     : "bg-white text-[#0f172a] border-[#e2e8f0] hover:bg-slate-50"
                 }`}
               >
-                <span>{req.docketNumber}</span>
+                <span className="font-bold">{req.docketNumber}</span>
+                <span className="text-[11px] font-sans opacity-90 truncate max-w-[130px]">{req.studentName}</span>
                 <span
-                  className={`text-[10px] px-1.5 py-0.2 rounded uppercase ${
+                  className={`text-[10px] px-1.5 py-0.2 rounded uppercase font-semibold ${
                     req.status === "BOOKED"
                       ? "bg-emerald-100 text-emerald-800"
                       : req.status === "APPROVED"
@@ -865,22 +904,50 @@ function FacultyReviewContent() {
                 <span className="font-mono text-[10px] text-[#64748b]">SECURE PROTOCOL</span>
               </div>
 
-              {/* Already Confirmed Banner */}
-              {currentRequest?.status === "BOOKED" && (
-                <div className="p-3 rounded bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold block">Already Confirmed &amp; Booked</span>
-                    <span className="text-[11px]">
-                      This requisition has already been confirmed on the equipment calendar.
-                    </span>
+              {/* Status-Aware Lifecycle Actions (PENDING_REVIEW -> APPROVED -> BOOKED) */}
+              {currentRequest?.status === "PENDING_REVIEW" && (
+                <div className="flex flex-col gap-2.5">
+                  <button
+                    type="button"
+                    disabled={actionSubmitting}
+                    onClick={handleApproveRequisition}
+                    className="w-full py-2.5 px-4 rounded bg-emerald-700 text-white font-semibold text-xs hover:bg-emerald-800 disabled:opacity-50 transition-colors shadow-xs flex items-center justify-center gap-2"
+                  >
+                    {actionSubmitting ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <Check className="w-4 h-4" />
+                    )}
+                    Step 1: Approve Project Requisition
+                  </button>
+
+                  <div className="grid grid-cols-1 gap-2">
+                    <button
+                      type="button"
+                      disabled={actionSubmitting}
+                      onClick={() => setRejectionOpen(!rejectionOpen)}
+                      className="py-2 px-3 rounded bg-red-50 text-red-700 border border-red-200 text-xs font-semibold hover:bg-red-100 transition-colors flex items-center justify-center gap-1.5"
+                    >
+                      <X className="w-3.5 h-3.5" />
+                      {rejectionOpen ? "Close Rejection Form" : "Reject Requisition"}
+                    </button>
                   </div>
+                  <p className="text-[11px] text-[#64748b] text-center">
+                    Approving the docket transitions status to APPROVED and unlocks deterministic slot confirmation.
+                  </p>
                 </div>
               )}
 
-              {/* Action Buttons */}
-              {currentRequest?.status !== "BOOKED" && currentRequest?.status !== "CANCELLED" && (
-                <div className="flex flex-col gap-2">
+              {currentRequest?.status === "APPROVED" && (
+                <div className="flex flex-col gap-2.5">
+                  <div className="p-3 bg-teal-50 border border-teal-200 rounded text-xs text-teal-900 flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
+                    <div>
+                      <span className="font-bold block">Requisition Merit Approved</span>
+                      <span className="text-[11px]">Select a candidate slot above and click below to commit booking.</span>
+                    </div>
+                  </div>
+
                   <button
                     type="button"
                     disabled={actionSubmitting || candidateSlots.length === 0}
@@ -890,31 +957,39 @@ function FacultyReviewContent() {
                     {actionSubmitting ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
                     ) : (
-                      <CheckCircle2 className="w-4 h-4" />
+                      <Calendar className="w-4 h-4" />
                     )}
-                    Approve Request &amp; Commit Selected Slot
+                    Step 2: Confirm Selected Slot (Commit Booking)
                   </button>
+                </div>
+              )}
 
-                  <div className="grid grid-cols-2 gap-2">
-                    <button
-                      type="button"
-                      disabled={actionSubmitting}
-                      onClick={handleApproveRequisition}
-                      className="py-2 px-3 rounded bg-slate-100 text-[#0f172a] text-xs font-semibold hover:bg-slate-200 transition-colors flex items-center justify-center gap-1.5"
-                    >
-                      <Check className="w-3.5 h-3.5" />
-                      Approve Docket Only
-                    </button>
-                    <button
-                      type="button"
-                      disabled={actionSubmitting}
-                      onClick={() => setRejectionOpen(!rejectionOpen)}
-                      className="py-2 px-3 rounded bg-red-50 text-red-700 border border-red-200 text-xs font-semibold hover:bg-red-100 transition-colors flex items-center justify-center gap-1.5"
-                    >
-                      <X className="w-3.5 h-3.5" />
-                      {rejectionOpen ? "Cancel Rejection" : "Reject Requisition"}
-                    </button>
+              {currentRequest?.status === "BOOKED" && (
+                <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs space-y-2">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                    <span className="font-bold text-sm">Booking Confirmed &amp; Committed</span>
                   </div>
+                  {currentRequest?.confirmedBooking && (
+                    <div className="font-mono text-xs bg-white/80 p-2.5 rounded border border-emerald-200/60 space-y-1">
+                      <div>Reference: <span className="font-bold text-blue-700">{currentRequest.confirmedBooking.referenceId}</span></div>
+                      <div>Time: {new Date(currentRequest.confirmedBooking.startTime).toLocaleString()} – {new Date(currentRequest.confirmedBooking.endTime).toLocaleTimeString()}</div>
+                      <div>Status: <span className="font-bold text-emerald-700">CONFIRMED (GiST Locked)</span></div>
+                    </div>
+                  )}
+                  <p className="text-[11px] text-emerald-800">
+                    The student quota has been decremented and the timetable is synced with the university master calendar.
+                  </p>
+                </div>
+              )}
+
+              {currentRequest?.status === "REJECTED" && (
+                <div className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-900 text-xs space-y-1.5">
+                  <div className="flex items-center gap-2">
+                    <X className="w-5 h-5 text-red-600 shrink-0" />
+                    <span className="font-bold text-sm">Requisition Declined</span>
+                  </div>
+                  <p className="text-xs">Reason: {currentRequest.rejectionReason || "Declined by faculty reviewer."}</p>
                 </div>
               )}
 

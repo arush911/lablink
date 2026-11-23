@@ -66,11 +66,13 @@ export default function RequestTrackingPage() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/v1/requests/me", {
-        headers: {
-          Authorization: "Bearer DEMO_TOKEN_STUDENT_ALEX_CHEN",
-        },
-      });
+      const cookieMatch = typeof document !== "undefined" ? document.cookie.match(/lablink_token=([^;]+)/) : null;
+      const headers: Record<string, string> = {};
+      if (cookieMatch) {
+        headers["Authorization"] = `Bearer ${cookieMatch[1]}`;
+      }
+
+      const res = await fetch("/api/v1/requests/me", { headers });
 
       if (!res.ok) {
         throw new Error("Failed to load your access request dockets.");
@@ -90,12 +92,15 @@ export default function RequestTrackingPage() {
     if (!confirm("Are you sure you want to cancel this access request?")) return;
     setCancellingId(docketId);
     try {
+      const cookieMatch = typeof document !== "undefined" ? document.cookie.match(/lablink_token=([^;]+)/) : null;
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (cookieMatch) {
+        headers["Authorization"] = `Bearer ${cookieMatch[1]}`;
+      }
+
       const res = await fetch(`/api/v1/requests/${docketId}/cancel`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer DEMO_TOKEN_STUDENT_ALEX_CHEN",
-        },
+        headers,
         body: JSON.stringify({ reason: "Student self-service cancellation" }),
       });
 

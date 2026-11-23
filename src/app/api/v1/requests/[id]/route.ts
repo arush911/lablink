@@ -24,7 +24,7 @@ export async function GET(
         e.technical_specifications, e.status as equipment_status,
         l.id as lab_id, l.name as laboratory_name, l.room_location,
         u.id as student_id, u.full_name as student_name, u.email as student_email,
-        u.quota_hours as student_quota_hours, u.used_quota_hours as student_used_quota_hours,
+        u.monthly_quota_hours as student_quota_hours, u.used_quota_hours as student_used_quota_hours,
         b.id as booking_id, b.reference_id as booking_reference_id,
         b.start_time as booking_start_time, b.end_time as booking_end_time,
         b.status as booking_status

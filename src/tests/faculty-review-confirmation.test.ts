@@ -262,10 +262,9 @@ describe("Stage 5: Faculty Review Console & Slot Confirmation", () => {
 
     // 3. Confirm slot (with dynamically distinct window to avoid colliding with previous test runs)
     await query("UPDATE users SET used_quota_hours = 0.0 WHERE email = 'student.demo@lablink.edu'");
-    const randomOffsetMs = Math.floor(Math.random() * 50000000);
-    const baseDate = new Date("2026-12-01T08:00:00.000Z").getTime() + randomOffsetMs;
-    const slotStart = new Date(baseDate).toISOString();
-    const slotEnd = new Date(baseDate + 2 * 3600 * 1000).toISOString();
+    const uniqueOffsetMs = Date.now() + Math.floor(Math.random() * 100000000);
+    const slotStart = new Date(uniqueOffsetMs).toISOString();
+    const slotEnd = new Date(uniqueOffsetMs + 2 * 3600 * 1000).toISOString();
 
     const confirmReq = new Request("http://localhost:3000/api/v1/bookings/confirm", {
       method: "POST",
