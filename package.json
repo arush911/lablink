@@ -10,7 +10,8 @@
     "lint": "next lint",
     "test": "vitest run",
     "db:migrate": "tsx scripts/migrate.ts",
-    "db:seed": "tsx scripts/seed.ts"
+    "db:seed": "tsx scripts/seed.ts",
+    "db:setup-neon": "tsx scripts/secure-neon-setup.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
