@@ -10,5 +10,9 @@ export default defineConfig({
   test: {
     environment: "node",
     globals: true,
+    env: {
+      ENABLE_LOCAL_DEMO_AUTH: "true",
+      NODE_ENV: "test",
+    },
   },
 });

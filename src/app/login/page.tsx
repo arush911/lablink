@@ -2,22 +2,24 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ShieldCheck, Beaker, ArrowRight, Loader2, AlertCircle } from "lucide-react";
+import { ShieldCheck, Beaker, ArrowRight, Loader2, AlertCircle, User, GraduationCap, CheckCircle2 } from "lucide-react";
 
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loadingRole, setLoadingRole] = useState<"student" | "faculty" | "standard" | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const handleQuickLogin = async (role: "student" | "faculty") => {
-    setLoading(true);
+    setLoadingRole(role);
     setError(null);
+    setSuccessMessage(null);
     try {
       const token = role === "student" ? "DEMO_TOKEN_STUDENT_ALEX_CHEN" : "DEMO_TOKEN_FACULTY_MARCUS_VANCE";
       
-      // Call server sync endpoint
+      // Call server sync endpoint (which sets server-side HttpOnly cookie)
       const res = await fetch("/api/v1/auth/sync", {
         method: "POST",
         headers: {
@@ -27,25 +29,26 @@ export default function LoginPage() {
       });
 
       if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.message || "Authentication synchronization failed");
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.message || `Authentication failed with status ${res.status}`);
       }
 
       const { user } = await res.json();
+      setSuccessMessage(`Authenticated as ${user.fullName} (${user.role.toUpperCase()})`);
 
-      // Set cookie for client session persistence
+      // Set fallback client-side cookie if needed, while HttpOnly is set by server
       document.cookie = `lablink_token=${token}; path=/; max-age=86400; SameSite=Lax`;
 
-      // Redirect to role-appropriate portal
+      // Redirect immediately to role-appropriate portal
       if (user.role === "faculty") {
         router.push("/faculty/review");
       } else {
-        router.push("/equipment");
+        router.push("/dashboard");
       }
     } catch (err: any) {
       setError(err.message || "An unexpected error occurred during sign-in.");
     } finally {
-      setLoading(false);
+      setLoadingRole(null);
     }
   };
 
@@ -59,64 +62,97 @@ export default function LoginPage() {
           LabLink Campus Resource Platform
         </h1>
         <p className="mt-1 text-sm text-[#64748b]">
-          Centralized Laboratory Scheduling & Resource Sharing
+          Centralized Laboratory Scheduling &amp; Resource Sharing
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-6 shadow-sm border border-[#e2e8f0] rounded-lg sm:px-10">
           {/* Quick Login Evaluation Panel */}
-          <div className="mb-6 p-4 bg-[#f8fafc] border border-[#e2e8f0] rounded-md">
+          <div className="mb-6 p-4 bg-[#f8fafc] border border-[#cbd5e1] rounded-lg">
             <div className="flex items-center gap-2 mb-2 text-xs font-semibold text-[#0037b0] uppercase tracking-wider font-mono">
               <ShieldCheck className="w-4 h-4 text-[#0037b0]" />
               <span>Evaluator One-Click Demonstration Sign-In</span>
             </div>
             <p className="text-xs text-[#64748b] mb-4">
-              Select a pre-seeded account to test role permissions, booking locks, and scheduling:
+              Select a pre-seeded account below for instant evaluation without passwords or manual configuration:
             </p>
 
-            <div className="space-y-2">
+            <div className="space-y-3">
+              {/* CONTINUE AS STUDENT */}
               <button
                 type="button"
+                id="btn-login-student"
                 onClick={() => handleQuickLogin("student")}
-                disabled={loading}
-                className="w-full flex items-center justify-between px-3 py-2.5 text-xs font-medium text-left border border-[#cbd5e1] rounded bg-white hover:bg-[#f1f5f9] transition-colors focus:ring-2 focus:ring-blue-600 focus:outline-none"
+                disabled={loadingRole !== null}
+                className="w-full flex items-center justify-between p-3.5 text-xs font-medium text-left border-2 border-blue-600 rounded-lg bg-blue-50/50 hover:bg-blue-100/60 hover:shadow-sm transition-all focus:ring-2 focus:ring-blue-600 focus:outline-none disabled:opacity-50"
               >
-                <div className="flex items-center gap-2.5">
-                  <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-semibold text-[10px]">
-                    AC
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0">
+                    {loadingRole === "student" ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <GraduationCap className="w-5 h-5" />
+                    )}
                   </div>
                   <div>
-                    <div className="font-semibold text-[#0f172a]">Alex Chen (Student Researcher)</div>
-                    <div className="text-[11px] text-[#64748b] font-mono">student.demo@lablink.edu • 25h Quota</div>
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-blue-700 font-bold">
+                      Option 1 — Student Role
+                    </div>
+                    <div className="text-sm font-bold text-[#0f172a]">
+                      CONTINUE AS STUDENT
+                    </div>
+                    <div className="text-[11px] text-[#475569] font-mono mt-0.5">
+                      student.demo@lablink.edu • Alex Chen (25h Quota)
+                    </div>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-[#64748b]" />
+                <ArrowRight className="w-5 h-5 text-blue-600 shrink-0 ml-2" />
               </button>
 
+              {/* CONTINUE AS FACULTY */}
               <button
                 type="button"
+                id="btn-login-faculty"
                 onClick={() => handleQuickLogin("faculty")}
-                disabled={loading}
-                className="w-full flex items-center justify-between px-3 py-2.5 text-xs font-medium text-left border border-[#cbd5e1] rounded bg-white hover:bg-[#f1f5f9] transition-colors focus:ring-2 focus:ring-blue-600 focus:outline-none"
+                disabled={loadingRole !== null}
+                className="w-full flex items-center justify-between p-3.5 text-xs font-medium text-left border-2 border-teal-700 rounded-lg bg-teal-50/50 hover:bg-teal-100/60 hover:shadow-sm transition-all focus:ring-2 focus:ring-teal-700 focus:outline-none disabled:opacity-50"
               >
-                <div className="flex items-center gap-2.5">
-                  <div className="w-6 h-6 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center font-semibold text-[10px]">
-                    MV
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-teal-700 text-white flex items-center justify-center font-bold text-xs shrink-0">
+                    {loadingRole === "faculty" ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <User className="w-5 h-5" />
+                    )}
                   </div>
                   <div>
-                    <div className="font-semibold text-[#0f172a]">Prof. Marcus Vance (Faculty / Coordinator)</div>
-                    <div className="text-[11px] text-[#64748b] font-mono">faculty.demo@lablink.edu • Admin</div>
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-teal-800 font-bold">
+                      Option 2 — Faculty Role
+                    </div>
+                    <div className="text-sm font-bold text-[#0f172a]">
+                      CONTINUE AS FACULTY
+                    </div>
+                    <div className="text-[11px] text-[#475569] font-mono mt-0.5">
+                      faculty.demo@lablink.edu • Prof. Marcus Vance (Reviewer)
+                    </div>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-[#64748b]" />
+                <ArrowRight className="w-5 h-5 text-teal-700 shrink-0 ml-2" />
               </button>
             </div>
           </div>
 
+          {successMessage && (
+            <div className="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded text-xs text-emerald-800 flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>{successMessage}</span>
+            </div>
+          )}
+
           {error && (
             <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded text-xs text-red-700 flex items-start gap-2">
-              <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+              <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
               <span>{error}</span>
             </div>
           )}
@@ -172,17 +208,10 @@ export default function LoginPage() {
 
             <button
               type="submit"
-              disabled={loading}
+              disabled={loadingRole !== null}
               className="w-full flex items-center justify-center py-2 px-4 border border-transparent rounded-md text-xs font-semibold text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 transition-colors"
             >
-              {loading ? (
-                <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                  Verifying Credentials...
-                </>
-              ) : (
-                "Sign In to Laboratory Network"
-              )}
+              Sign In to Laboratory Network
             </button>
           </form>
 

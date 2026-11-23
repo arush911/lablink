@@ -308,6 +308,9 @@ function FacultyReviewContent() {
   };
 
   const handleLogout = async () => {
+    try {
+      await fetch("/api/v1/auth/logout", { method: "POST" });
+    } catch {}
     document.cookie = "lablink_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     router.push("/login");
   };

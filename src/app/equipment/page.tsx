@@ -213,7 +213,10 @@ export default function EquipmentDiscoveryPage() {
                   {currentUser.fullName ? currentUser.fullName.charAt(0) : "U"}
                 </div>
                 <button
-                  onClick={() => {
+                  onClick={async () => {
+                    try {
+                      await fetch("/api/v1/auth/logout", { method: "POST" });
+                    } catch {}
                     document.cookie = "lablink_token=; path=/; max-age=0";
                     router.push("/login");
                   }}

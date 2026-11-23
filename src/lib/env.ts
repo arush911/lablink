@@ -3,6 +3,7 @@ import { z } from "zod";
 const envSchema = z.object({
   DATABASE_URL: z.string().default("postgresql://postgres:postgres@localhost:5432/lablink"),
   NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
+  ENABLE_LOCAL_DEMO_AUTH: z.string().default("false"),
   FIREBASE_PROJECT_ID: z.string().default("lablink-demo-2026"),
   FIREBASE_CLIENT_EMAIL: z.string().optional(),
   FIREBASE_PRIVATE_KEY: z.string().optional(),
@@ -15,6 +16,7 @@ const envSchema = z.object({
 export const env = envSchema.parse({
   DATABASE_URL: process.env.DATABASE_URL,
   NODE_ENV: process.env.NODE_ENV,
+  ENABLE_LOCAL_DEMO_AUTH: process.env.ENABLE_LOCAL_DEMO_AUTH,
   FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
   FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,
   FIREBASE_PRIVATE_KEY: process.env.FIREBASE_PRIVATE_KEY,

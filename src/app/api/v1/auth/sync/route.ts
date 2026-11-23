@@ -56,7 +56,7 @@ export async function POST(req: Request) {
       }
 
       // Return authoritative record. Role is NEVER modified by client input!
-      return NextResponse.json({
+      const res = NextResponse.json({
         user: {
           id: user.id,
           email: user.email,
@@ -68,6 +68,19 @@ export async function POST(req: Request) {
           isActive: user.is_active,
         },
       });
+
+      // Secure, HttpOnly session cookie
+      res.cookies.set({
+        name: "lablink_token",
+        value: token,
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        path: "/",
+        maxAge: 86400, // 24 hours
+      });
+
+      return res;
     }
 
     // 2. New unprovisioned user: STRICT DEFAULT TO STUDENT
@@ -83,7 +96,7 @@ export async function POST(req: Request) {
 
     const newUser = insertRes.rows[0];
 
-    return NextResponse.json(
+    const res = NextResponse.json(
       {
         user: {
           id: newUser.id,
@@ -98,6 +111,19 @@ export async function POST(req: Request) {
       },
       { status: 201 }
     );
+
+    // Secure, HttpOnly session cookie
+    res.cookies.set({
+      name: "lablink_token",
+      value: token,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      maxAge: 86400, // 24 hours
+    });
+
+    return res;
   } catch (error: any) {
     console.error("[POST /api/v1/auth/sync Error]:", error);
     return NextResponse.json(

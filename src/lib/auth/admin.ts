@@ -55,12 +55,14 @@ export async function verifyIdToken(token: string): Promise<DecodedToken> {
     token === "DEMO_TOKEN_FACULTY_MARCUS_VANCE";
 
   if (isDemoToken) {
-    const isProduction = env.NODE_ENV === "production";
-    const isLocalDemoPermitted =
-      !isProduction &&
-      (env.NODE_ENV === "test" ||
-        env.NODE_ENV === "development" ||
-        process.env.ENABLE_LOCAL_DEMO_AUTH === "true");
+    const isProduction =
+      env.NODE_ENV === "production" || process.env.NODE_ENV === "production";
+    const isDemoAuthFlagEnabled =
+      env.ENABLE_LOCAL_DEMO_AUTH === "true" ||
+      process.env.ENABLE_LOCAL_DEMO_AUTH === "true";
+
+    // Strictly dual-condition: must NOT be production AND must have explicit demo auth flag enabled
+    const isLocalDemoPermitted = !isProduction && isDemoAuthFlagEnabled;
 
     if (isProduction || !isLocalDemoPermitted) {
       throw new Error("DEMO_AUTH_STRICTLY_PROHIBITED_IN_PRODUCTION");

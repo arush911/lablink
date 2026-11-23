@@ -51,8 +51,10 @@ describe("AC-AUTH-02: Prevention of Role Tampering during Account Sync", () => {
     const { env } = await import("../lib/env");
 
     const originalEnv = env.NODE_ENV;
+    const originalProc = process.env.NODE_ENV;
     try {
       (env as any).NODE_ENV = "production";
+      (process.env as any).NODE_ENV = "production";
 
       await expect(
         verifyIdToken("DEMO_TOKEN_STUDENT_ALEX_CHEN")
@@ -63,6 +65,7 @@ describe("AC-AUTH-02: Prevention of Role Tampering during Account Sync", () => {
       ).rejects.toThrow("DEMO_AUTH_STRICTLY_PROHIBITED_IN_PRODUCTION");
     } finally {
       (env as any).NODE_ENV = originalEnv;
+      (process.env as any).NODE_ENV = originalProc;
     }
   });
 
