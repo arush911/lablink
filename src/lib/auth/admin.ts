@@ -47,21 +47,40 @@ export async function verifyIdToken(token: string): Promise<DecodedToken> {
     throw new Error("TOKEN_MISSING");
   }
 
-  // Demonstration Evaluator Quick-Tokens
-  if (token === "DEMO_TOKEN_STUDENT_ALEX_CHEN") {
-    return {
-      uid: "firebase_demo_student_alex_chen_2026",
-      email: "student.demo@lablink.edu",
-      name: "Alex Chen",
-    };
-  }
+  // Demonstration Evaluator Quick-Tokens:
+  // Strictly restricted to local non-production environments.
+  // CANNOT be enabled in production under any configuration.
+  const isDemoToken =
+    token === "DEMO_TOKEN_STUDENT_ALEX_CHEN" ||
+    token === "DEMO_TOKEN_FACULTY_MARCUS_VANCE";
 
-  if (token === "DEMO_TOKEN_FACULTY_MARCUS_VANCE") {
-    return {
-      uid: "firebase_demo_faculty_marcus_vance_2026",
-      email: "faculty.demo@lablink.edu",
-      name: "Prof. Marcus Vance",
-    };
+  if (isDemoToken) {
+    const isProduction = env.NODE_ENV === "production";
+    const isLocalDemoPermitted =
+      !isProduction &&
+      (env.NODE_ENV === "test" ||
+        env.NODE_ENV === "development" ||
+        process.env.ENABLE_LOCAL_DEMO_AUTH === "true");
+
+    if (isProduction || !isLocalDemoPermitted) {
+      throw new Error("DEMO_AUTH_STRICTLY_PROHIBITED_IN_PRODUCTION");
+    }
+
+    if (token === "DEMO_TOKEN_STUDENT_ALEX_CHEN") {
+      return {
+        uid: "firebase_demo_student_alex_chen_2026",
+        email: "student.demo@lablink.edu",
+        name: "Alex Chen",
+      };
+    }
+
+    if (token === "DEMO_TOKEN_FACULTY_MARCUS_VANCE") {
+      return {
+        uid: "firebase_demo_faculty_marcus_vance_2026",
+        email: "faculty.demo@lablink.edu",
+        name: "Prof. Marcus Vance",
+      };
+    }
   }
 
   try {

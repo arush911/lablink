@@ -45,4 +45,45 @@ describe("AC-AUTH-02: Prevention of Role Tampering during Account Sync", () => {
     const data = await res.json();
     expect(data.error).toBe("TOKEN_MISSING");
   });
+
+  it("must strictly prohibit demo quick-tokens in production environments", async () => {
+    const { verifyIdToken } = await import("../lib/auth/admin");
+    const { env } = await import("../lib/env");
+
+    const originalEnv = env.NODE_ENV;
+    try {
+      (env as any).NODE_ENV = "production";
+
+      await expect(
+        verifyIdToken("DEMO_TOKEN_STUDENT_ALEX_CHEN")
+      ).rejects.toThrow("DEMO_AUTH_STRICTLY_PROHIBITED_IN_PRODUCTION");
+
+      await expect(
+        verifyIdToken("DEMO_TOKEN_FACULTY_MARCUS_VANCE")
+      ).rejects.toThrow("DEMO_AUTH_STRICTLY_PROHIBITED_IN_PRODUCTION");
+    } finally {
+      (env as any).NODE_ENV = originalEnv;
+    }
+  });
+
+  it("must enforce database role as the sole authorization authority", async () => {
+    const { requireAuth } = await import("../lib/auth/guard");
+
+    // Student token attempting to access faculty-restricted function
+    const req = new Request("http://localhost:3000/api/v1/faculty/review", {
+      headers: {
+        Authorization: "Bearer DEMO_TOKEN_STUDENT_ALEX_CHEN",
+      },
+    });
+
+    // Should reject because PostgreSQL users table has role = 'student'
+    await expect(requireAuth(req, ["faculty"])).rejects.toThrow(
+      "Access forbidden. Requires one of: faculty"
+    );
+
+    // Should allow when permitted role matches PostgreSQL record
+    const user = await requireAuth(req, ["student"]);
+    expect(user.role).toBe("student");
+    expect(user.email).toBe("student.demo@lablink.edu");
+  });
 });
